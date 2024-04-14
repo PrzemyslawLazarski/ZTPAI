@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<head>
+       
+        <title>{% block title %}register{% endblock %}</title>
+        
+        {% block stylesheets %}
+         <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@500&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" type="text/css" href="css/register.css">
+        {% endblock %}
+
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="logo">
+                <a href="#" ><img src="{{ asset('img/logo.svg')}}"></a>
+            </div>
+            <div class="welcome-message">
+                Welcome!</br>
+                Kindly fill in this form to register.
+            </div>
+            <div class="login-container">
+                <form method="POST" class="register">
+                    <input name="nickname" type="text" placeholder="nickname">
+                    <input name="email" type="text" placeholder="email@email.com">
+                    <input name="password" type="password" placeholder="password">
+                    <input name="confirmedPassword" type="password" placeholder="confirm password">
+                    <div class="already-have"> Already have an account?<a href="#">Login</a></div>
+                    <button type="submit" name='sign-up-button' id="sign-up-button">Sign up</button>
+                </form>
+            </div>
+        </div>
+        <div class="right">
+            <div class="image">
+                <img src="{{ asset('img/people2.svg')}}">
+            </div>
+            <div class="go-back-button">
+                <a href="#">Go back</a>
+            </div>
+        </div>
+    </div>
+</body>
