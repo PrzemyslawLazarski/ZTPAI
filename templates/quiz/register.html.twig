@@ -13,7 +13,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@500&display=swap" rel="stylesheet">
         
-        <link rel="stylesheet" type="text/css" href="css/register.css">
+        <link rel="stylesheet" type="text/css" href="{{ asset ('css/register.css')}}">
         {% endblock %}
 
         {% block javascripts %}
@@ -25,7 +25,7 @@
     <div class="container">
         <div class="left">
             <div class="logo">
-                <a href="#" ><img src="{{ asset('img/logo.svg')}}"></a>
+                <a href="{{ asset ('login')}}" ><img src="{{ asset('img/logo.svg')}}"></a>
             </div>
             <div class="welcome-message">
                 Welcome!</br>
@@ -47,7 +47,7 @@
                 <img src="{{ asset('img/people2.svg')}}">
             </div>
             <div class="go-back-button">
-                <a href="#">Go back</a>
+                <a href="{{ asset ('login')}}">Go back</a>
             </div>
         </div>
     </div>

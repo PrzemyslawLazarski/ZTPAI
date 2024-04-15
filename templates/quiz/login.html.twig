@@ -14,7 +14,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@500&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="css/login.css">
+        <link rel="stylesheet" type="text/css" href="{{ asset ('css/login.css')}}">
         {% endblock %}
 
         {% block javascripts %}
@@ -38,7 +38,7 @@
                     <input name="password" type="password" placeholder="Password"></br>
                     <div class="log">
                         <button type="submit" class="login-button">Login</button>
-                        <a href="#" class="sign-up-button">Sign up</a>
+                        <a href="{{ asset ('register')}}" class="sign-up-button">Sign up</a>
                     </div>
                 </form>
                 <div class="alt-login">
