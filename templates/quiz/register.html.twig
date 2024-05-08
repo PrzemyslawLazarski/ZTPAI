@@ -4,7 +4,7 @@
        
         <title>{% block title %}register{% endblock %}</title>
         
-        {% block stylesheets %}
+
          <meta charset="UTF-8">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@500&display=swap" rel="stylesheet">
         
         <link rel="stylesheet" type="text/css" href="{{ asset ('css/register.css')}}">
-        {% endblock %}
+
 
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
@@ -37,8 +37,8 @@
                     <input name="email" type="text" placeholder="email@email.com">
                     <input name="password" type="password" placeholder="password">
                     <input name="confirmedPassword" type="password" placeholder="confirm password">
-                    <div class="already-have"> Already have an account?<a href="#">Login</a></div>
-                    <button type="submit" name='sign-up-button' id="sign-up-button">Sign up</button>
+                    <div class="already-have"> Already have an account?<a href="{{ path('login') }}">Login</a></div>
+                    <button type="submit" name='sign-up-button' class="sign-up-button">Sign up</button>
                 </form>
             </div>
         </div>
@@ -47,7 +47,7 @@
                 <img src="{{ asset('img/people2.svg')}}">
             </div>
             <div class="go-back-button">
-                <a href="{{ asset ('login')}}">Go back</a>
+                <a href="{{ path ('login')}}">Go back</a>
             </div>
         </div>
     </div>

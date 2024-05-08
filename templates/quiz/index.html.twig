@@ -4,7 +4,7 @@
         
         <title>{% block title %}index{% endblock %}</title>
         
-        {% block stylesheets %}
+
         <meta charset="UTF-8">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@500&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{{ asset ('css/main.css')}}">
-        {% endblock %}
+
 
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="login-button">
-                <a href="#">Login</a>
+                <a href="{{ path('login') }}">Login</a>
             </div>
         </div>
         <div class="separator"></div>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="start-bar">
                     <div class="start-button">
-                        <a href="#">Start solving</a>
+                        <a href="{{ path('login') }}">Start solving</a>
                     </div>
                     <div class="knowmore-button">
                         <a href="#">Know more</a>

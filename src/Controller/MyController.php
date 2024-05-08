@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 
 #[AsController]
-class MyController
+class MyController extends AbstractController
 {
     #[Route('/register', name: 'register')]
     public function register(): Response
