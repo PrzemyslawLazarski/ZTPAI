@@ -30,27 +30,27 @@ user_delete:
     controller: App\Controller\UserController::delete
     methods: DELETE
 
-quiz_index:
+Quiz_index:
     path: /api/quizzes
     controller: App\Controller\QuizController::index
     methods: GET
 
-quiz_show:
+Quiz_show:
     path: /api/quizzes/{id}
     controller: App\Controller\QuizController::show
     methods: GET
 
-quiz_create:
+Quiz_create:
     path: /api/quizzes
     controller: App\Controller\QuizController::create
     methods: POST
 
-quiz_update:
+Quiz_update:
     path: /api/quizzes/{id}
     controller: App\Controller\QuizController::update
     methods: PUT
 
-quiz_delete:
+Quiz_delete:
     path: /api/quizzes/{id}
     controller: App\Controller\QuizController::delete
     methods: DELETE
