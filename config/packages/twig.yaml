@@ -1,8 +1,0 @@
-twig:
-    file_name_pattern: '*.twig'
-    globals:
-        author: Code With Me
-
-when@test:
-    twig:
-        strict_variables: true
