@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<head>
+        
+        
+        
+        <title>{% block title %}login{% endblock %}</title>
+        
+
+        <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{ asset ('css/login.css')}}">
+
+
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="logo">
+                <a href="{{ path('main') }}" ><img src="{{ asset('img/logo.svg')}}"></a>
+            </div>
+            <div class="welcome-message">
+                Welcome  back!</br>
+                Please login/Signup to your account.
+            </div>
+            <div class="login-container">
+                <form class="login" action="login" method="POST">
+                    <input name="email"  type="text" placeholder="Email Address"></br>
+                    <input name="password" type="password" placeholder="Password"></br>
+                    <div class="log">
+                        <button type="submit" class="login-button">Login</button>
+                        <a href="{{ path ('register')}}" class="sign-up-button">Sign up</a>
+                    </div>
+                </form>
+                <div class="alt-login">
+                    <div class="or-login-with">
+                        Or login with
+                    </div>
+                    <div class="facebook">
+                        <a href="#">Facebook</a>
+                    </div>
+                    <div class="google">
+                        <a href="#">Google</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="image">
+                <img src="{{ asset('img/people2.svg')}}">
+            </div>
+            <div class="go-back-button">
+                <a href="{{ path('main') }}">Go back</a>
+            </div>
+        </div>
+    </div>
+</body>

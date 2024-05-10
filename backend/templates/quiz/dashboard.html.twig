@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+
+<head>
+        
+        
+        <title>{% block title %}dashboard{% endblock %}</title>
+        
+
+        <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{ asset ('css/dashboard.css')}}">
+
+
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+
+<body>
+    <div class="container">
+        <div class="menu">
+            <div class="logo">
+                <a href="#"><img src="{{ asset('img/logowhite.svg')}}"></a>
+            </div>
+            <div class="links">
+                <a href="#"><i class="fas fa-home"></i>  Home</a></br></br>
+                <a href="#"><i class="fas fa-puzzle-piece"></i>  My Quizzes</a></br></br>
+                <a href="#"><i class="fas fa-compass"></i>  Discover</a></br></br>
+                
+                <a class="logout-button" href="{{ path('login') }}"><i class="fas fa-sign-out-alt"></i>  Log Out</a>
+            </div>
+        </div>
+        <div class="board">
+            Home
+            
+            <div class="separator"></div>
+        Hello, user {{id}}
+        </div>
+    </div>
+</body>
+

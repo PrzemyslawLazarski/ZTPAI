@@ -1,0 +1,109 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+
+user_index:
+    path: /api/users
+    controller: App\Controller\UserController::index
+    methods: GET
+
+user_show:
+    path: /api/users/{id}
+    controller: App\Controller\UserController::show
+    methods: GET
+
+user_create:
+    path: /api/users
+    controller: App\Controller\UserController::create
+    methods: POST
+
+user_update:
+    path: /api/users/{id}
+    controller: App\Controller\UserController::update
+    methods: PUT
+
+user_delete:
+    path: /api/users/{id}
+    controller: App\Controller\UserController::delete
+    methods: DELETE
+
+quiz_index:
+    path: /api/quizzes
+    controller: App\Controller\QuizController::index
+    methods: GET
+
+quiz_show:
+    path: /api/quizzes/{id}
+    controller: App\Controller\QuizController::show
+    methods: GET
+
+quiz_create:
+    path: /api/quizzes
+    controller: App\Controller\QuizController::create
+    methods: POST
+
+quiz_update:
+    path: /api/quizzes/{id}
+    controller: App\Controller\QuizController::update
+    methods: PUT
+
+quiz_delete:
+    path: /api/quizzes/{id}
+    controller: App\Controller\QuizController::delete
+    methods: DELETE
+
+
+question_index:
+    path: /api/questions
+    controller: App\Controller\QuestionController::index
+    methods: GET
+
+question_show:
+    path: /api/questions/{id}
+    controller: App\Controller\QuestionController::show
+    methods: GET
+
+question_create:
+    path: /api/questions
+    controller: App\Controller\QuestionController::create
+    methods: POST
+
+question_update:
+    path: /api/questions/{id}
+    controller: App\Controller\QuestionController::update
+    methods: PUT
+
+question_delete:
+    path: /api/questions/{id}
+    controller: App\Controller\QuestionController::delete
+    methods: DELETE
+
+
+answer_index:
+    path: /api/answers
+    controller: App\Controller\AnswerController::index
+    methods: GET
+
+answer_show:
+    path: /api/answers/{id}
+    controller: App\Controller\AnswerController::show
+    methods: GET
+
+answer_create:
+    path: /api/answers
+    controller: App\Controller\AnswerController::create
+    methods: POST
+
+answer_update:
+    path: /api/answers/{id}
+    controller: App\Controller\AnswerController::update
+    methods: PUT
+
+answer_delete:
+    path: /api/answers/{id}
+    controller: App\Controller\AnswerController::delete
+    methods: DELETE
+
