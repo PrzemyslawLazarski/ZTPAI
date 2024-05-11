@@ -48,12 +48,12 @@ function MyQuizzes() {
             </a>
           </header>
           <section className="projects">
-            {/* Wyświetlanie quizów pobranych z API */}
             {quizzes.map((quiz) => (
-              <div key={quiz.id}>
+            <div key={quiz.id}>
                 <h3>{quiz.title}</h3>
                 <p>{quiz.description}</p>
-              </div>
+                {quiz.image && <img src={`/img/${quiz.image}`} alt="Quiz" />}
+            </div>
             ))}
           </section>
         </div>

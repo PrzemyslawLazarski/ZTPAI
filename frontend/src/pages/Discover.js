@@ -4,7 +4,7 @@ import './Dashboard.css'; // Importuj styl CSS
 
 function Discover() {
   const [quizzes, setQuizzes] = useState([]); // Stan do przechowywania quizów
-
+  
   useEffect(() => {
     document.title = 'Discover';
     // Funkcja do pobierania quizów z API
@@ -44,13 +44,14 @@ function Discover() {
             
           </header>
           <section className="projects">
-            {/* Wyświetlanie quizów pobranych z API */}
             {quizzes.map((quiz) => (
-              <div key={quiz.id}>
-                <h3>{quiz.title}</h3>
-                <p>{quiz.description}</p>
-              </div>
+                <div key={quiz.id}>
+                    <h3>{quiz.title}</h3>
+                    <p>{quiz.description}</p>
+                    {quiz.image && <img src={`/img/${quiz.image}`} alt="Quiz" />}
+                </div>
             ))}
+
           </section>
         </div>
       </div>
