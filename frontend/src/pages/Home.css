@@ -1,0 +1,198 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+
+.home-container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: Poppins;
+}
+
+.home-logo
+{
+    margin-left: 2vw;
+}
+
+.home-bar
+{
+    display: flex;
+    
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height:10vh;
+
+}
+.home-bar-buttons
+{
+    margin-top: 5vh;
+    margin-left: 42vw;
+}
+.home-bar-buttons a
+{
+    color: #E0E0E0;
+    font-size: 2vh;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+    margin-right: 4vw;
+}
+
+.home-bar a:visited
+{
+    color: #E0E0E0;
+    text-decoration: none;
+
+}
+
+.home-login-button
+{
+    margin-top: 2.5vh;
+    margin-right: 7.6vw;
+}
+
+.home-login-button a {
+    display: block;
+    padding: 2vh;
+    font-size: 2vh;
+    width:5vw;
+    text-align: center;
+    background-color: #ffffff;
+    color: #FCC822;
+    text-decoration: none;
+    border:0.1vw solid #FCC822;
+}
+.home-login-button>a:hover{
+    background: linear-gradient(95deg, #FCC822 0%, #FFCD2E 100%);
+    color: white;
+    box-shadow: 0px 0.1vw 2.5vh -0.2vw #FBE18F;
+    transition: all 0.3s ease;
+}
+.home-separator
+{
+    width: 80vw;
+    height: 0.1vh;
+    background-color: #ECECE8;
+    margin-bottom: 2vh;
+    margin-right: 11vw;
+    margin-left: 2vw;;
+
+}
+
+.home-header
+{
+    margin-top: 1vh;
+    display: flex;
+    align-items: center;
+}
+
+.home-vertical-content
+{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.home-row-content
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.home-motto
+{
+    color: #333;
+    font-family: Roboto;
+    font-size: 4vh;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-top: 5vh;
+    margin-left: 4vw;
+}
+
+.home-lower-motto
+{
+
+    color: #828282;
+    font-family: Roboto;
+    font-size: 2.5vh;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 4vw;
+    margin-top: 5vh;
+
+}
+
+.home-start-bar
+{
+    display: flex;
+    align-items: flex-start;
+    margin-top: 4vh;
+    margin-left: 4vw;
+    height:10vh;
+}
+.home-start-button
+{
+    width:11vw;
+    text-align: center;
+}
+.home-start-button a
+{
+    display: block;
+    padding: 2vh;
+    color:#FFFFFF;
+    text-decoration: none;
+    background: linear-gradient(95deg, #FCC822 0%, #FFCD2E 100%);
+    box-shadow: 0px 10.45024px 23.22276px -6.96683px #FBE18F;
+
+}
+.home-start-button > a:hover{
+    background: linear-gradient(95deg, white 0%, white 100%);
+    color: #FCC822;
+    box-shadow: 0px 0.1vw 2.5vh -0.2vw #FBE18F;
+    transition: all 0.3s ease;
+    border: 0.581px solid #FCC822;
+}
+
+.home-knowmore-button a
+{
+    display: block;
+    padding: 2vh;
+    color: #FCC822;
+    text-decoration: none;
+    border-radius: 0.1vh;
+    margin-left: 2vw;
+
+}
+
+
+.home-image
+{
+    margin-left: 10vw;
+}
+
+.home-image img
+{
+    max-width: 100%;
+
+}
+.home-smaller-image
+{
+    margin-top: 2vh;
+}
+
+.how-it-works-content
+{
+    margin-top: 3vh;
+    margin-left: 4vw;
+    height:30vh;
+
+}

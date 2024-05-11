@@ -1,0 +1,381 @@
+body{
+    top: 0;
+    left: 0;
+    margin :0;
+    padding: 0;
+    width:100%;
+    height:100%;
+    
+}
+
+.container {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    font-family: Poppins;
+}
+
+.dashboard-logo
+{
+    margin-left: 1.5vw;
+}
+
+
+.menu
+{
+    top:0;
+    left:0;
+    position: fixed;
+    background:#FCC822;
+    width:18vw;
+    height:100vh;
+    text-align: left;
+}
+
+.menu a{
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none;
+    color: black;
+    font-size: 1.7em;
+
+}
+.logout-button
+{
+    margin-top: 30vh;
+}
+.menu a:hover{
+
+    color: #ECECE8;
+
+}
+.links
+{
+    margin-left:4vw;
+}
+
+.board
+{
+    margin-left: 20vw;
+    font-size:4em;
+    color:black;
+    display: flex;
+    flex-direction: column;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding:2vw;
+}
+
+.separator 
+{
+    height: 0.1vh;
+    background-color: #ECECE8;
+    margin-bottom: 2vh;
+}
+
+.Add
+{
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    color:#FCC822;
+    font-size: 0.4em;
+    margin-left:1vw;
+    display: block;
+    padding: 2vh;
+    height: 4vh;
+    width:5vw;
+    text-align: center;
+    background-color: #ffffff;
+    color: #FCC822;
+    text-decoration: none;
+    border:0.1vw solid #FCC822;
+    margin-top: 2vh;
+
+}
+.Add:hover
+{
+    background: linear-gradient(95deg, #FCC822 0%, #FFCD2E 100%);
+    color: white;
+    box-shadow: 0px 0.1vw 2.5vh -0.2vw #FBE18F;
+}
+.Add>a:visited
+{
+    color: #FCC822;
+}
+a:link, a:visited
+{
+    color:black;
+    text-decoration: none;
+}
+
+.projects
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+header
+{
+    display:flex;
+    flex-direction: row;
+    margin-bottom: 5vh;
+}
+
+
+.search-bar > input,.delete-bar > input{
+    height:4vh;
+    display: block;
+    padding: 2vh;
+    font-size: 2vh;
+    width:40vw;
+    text-align: center;
+    background-color: #ffffff;
+    color: #FCC822;
+    text-decoration: none;
+    border:0.1vw solid #FCC822;
+    margin-right: 5vw;
+    border-radius: 6em;
+
+
+}
+.search-bar > input::placeholder,.delete-bar> input::placeholder
+{
+    color:#FCC822;
+}
+
+.quiz, .projects>a>div, section>div
+{
+    font-size: 0.25em;
+    padding:0;
+    width: 15vw;
+    margin-bottom: 1vw;
+    color:black;
+
+}
+section>div>a
+{
+    font-size: 1em;
+    margin-left: 4vw;
+    color:black;
+
+}
+.session
+{
+    font-size:0.2em;
+    margin-top: 68vh;
+    margin-left: 65vw;
+}
+.hello-message
+{
+    font-size:0.8em;
+}
+.right
+{
+    display: flex;
+    flex-direction: column;
+}
+
+section.project-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.project-form>form {
+    display: flex;
+    flex-direction: column;
+}
+
+input,
+textarea {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid gray;
+    padding: 1em;
+    margin: 1em;
+    width: 50%;
+}
+
+.projects ,.discoverProjects{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3vw;
+
+    padding: 1vw;
+}
+
+.projects div,.discoverProjects div{
+    background: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 15vw;
+    height:50vh;
+}
+
+.projects div img ,.discoverProjects div img{
+    width: 100%;
+    height: 60%;
+    display: block;
+}
+
+.projects div a ,.discoverProjects div a{
+    display: inline-block;
+    background: #FCC822;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.projects div .delete{
+    background: #f1061d;
+}
+.projects div .delete:hover{
+    box-shadow: 0px 0.1vw 2.5vh -0.2vw #f1061d;
+    color:#f1061d;
+}
+.projects div a:hover ,.discoverProjects div a:hover{
+    background: linear-gradient(95deg, white 0%, white 100%);
+    color: #FCC822;
+    box-shadow: 0px 0.1vw 2.5vh -0.2vw #FCC822;
+    transition: all 0.3s ease;
+
+}
+
+.projects h2,.discoverProjects h2 {
+    margin: 10px;
+    font-size: 1.5em;
+}
+
+.projects p ,.discoverProjects p{
+    margin: 10px;
+    color: #333;
+}
+
+.project-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    width:50vw;
+    margin: auto;
+    font-size:0.5em;
+}
+
+.project-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-form input[type="text"],
+.project-form textarea,
+.project-form input[type="file"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.quiz
+{
+    display:flex;
+    flex-direction: row;
+    width:50vw;
+}
+
+
+.project-form .messages {
+    color: red;
+    margin-bottom: 15px;
+    font-size:0.5em;
+}
+
+.project-form .question {
+
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+
+}
+
+.project-form .question input[type="text"] {
+    margin: 5px 0;
+    width:15vw;
+}
+
+.project-form .question input[type="radio"] {
+   width:20px;
+}
+
+
+.project-form button {
+    background-color: #FCC822;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.project-form button
+{
+    margin-top:1vh;
+    width:20vw;
+
+}
+.form-buttons
+{
+    margin-left:5vw;
+}
+.project-form button:hover
+{
+    background: linear-gradient(95deg, white 0%, white 100%);
+    color: #FCC822;
+    box-shadow: 0.1px 0.1vw 2.5vh -0.2vw #FBE18F;
+    transition: all 0.3s ease;
+    border: 0.581px solid #FCC822;
+
+}
+.question {
+    margin-bottom: 20px;
+
+}
+
+.answer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.answer input[type="text"] {
+
+    margin-right: 10px;
+}
+.template-container
+{
+    width:40vw;
+}
+#questions-container
+{
+    width:30vw;
+}
+.header
+{
+    display: flex;
+    flex-direction: row;
+}
+.template-header
+{
+   margin-left:24vw;
+}
+.quiz-header
+{
+    margin-left:5vw;
+}

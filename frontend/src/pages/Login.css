@@ -1,0 +1,269 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.container{
+    font-family: Poppins;
+}
+.login-container
+{
+    display: flex;
+    flex-direction: column;
+    width:40vw;
+ 
+
+}
+
+
+
+.alt-login
+{
+    display: flex;
+    flex-direction: row;
+}
+.container
+{
+    display: flex;
+    flex-direction: row;
+}
+.logo img {
+    width: 30vw;
+    margin-left: 6vw;
+  }
+.welcome-message
+{
+
+    color: rgba(0, 0, 0, 0.60);
+    text-align: center;
+    font-family: Roboto;
+    font-size: 2.5vh;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 3vw;
+    margin-bottom: 1vw;
+}
+.messages {
+text-align: center;
+    margin-top:1vh;
+}
+input[type=password]{
+    width:36vw;
+    height:7vh;
+    margin-left: 2vw;
+    font-size: 1vw;
+    padding-left: 1vw;
+
+    border: 0.1vw solid #C1BBBB;
+    background: #FFF;
+    color: #FCC822;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+}
+input[type=text] {
+    
+    width:36vw;
+    height:7vh;
+    margin-left: 2vw;
+    font-size: 1vw;
+    padding-left: 1vw;
+    border: 0.1vw solid #C1BBBB;
+    background: #FFF;
+    color: #FCC822;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+}
+
+.right
+{
+    width:50vw;
+    margin-left: 6vw;
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.go-back-button a {
+    display: block;
+    padding: 2vh;
+    font-size: 2vh;
+    width:5vw;
+    text-align: center;
+    background-color: #ffffff;
+    color: #FCC822;
+    text-decoration: none;
+    border:0.1vw solid #FCC822;
+    margin-right: 5vw;
+
+}
+input[type=checkbox]
+{
+    margin-top: 3vh;
+    margin-left: 2vw;
+    width:0.7vw;
+    height:0.7vw;
+
+}
+label
+{
+    color: rgba(0, 0, 0, 0.61);
+    font-family: Roboto;
+    font-size: 0.76vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.log
+{
+    display:flex;
+}
+.forgot-password
+{
+    margin-left:24vw;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.61);
+    font-family: Roboto;
+    font-size: 0.76vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
+.login-button
+{
+    margin-top: 5vh;
+    margin-left: 2vw;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 2vh;
+    border:0;
+    font-size: 0.8vw;
+    color:#FFFFFF;
+    text-decoration: none;
+    background: linear-gradient(95deg, #FCC822 0%, #FFCD2E 100%);
+    box-shadow: 0px 10.45024px 23.22276px -6.96683px #FBE18F;
+    width:7.5vw;
+    cursor: pointer;
+
+}
+
+.sign-up-button
+{
+    margin-top: 5vh;
+    margin-left: 2vw;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 2vh;
+    font-size: 0.8vw;
+    color:#FCC822;
+    text-decoration: none;
+    padding-left: 2vw;
+    border: 0.581px solid #FCC822;
+    background: #FFF;
+    box-shadow: 0px 10.45024px 23.22276px -6.96683px #FBE18F;
+    cursor: pointer;
+    width:4.5vw;
+    display: flex;
+
+}
+
+.or-login-with
+{
+    margin-top: 4vh;
+    margin-left: 2vw;
+    color: rgba(0, 0, 0, 0.61);
+    font-family: Roboto;
+    font-size: 0.8vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.facebook
+{
+    margin-top: 4vh;
+    margin-left: 3.3vw;
+    font-family: Roboto;
+    font-size: 0.8vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+}
+.facebook a
+{
+    text-decoration: none;
+    color: #FCC822;
+}
+.google
+{
+    margin-top: 4vh;
+    margin-left: 3.3vw;
+    font-family: Roboto;
+    font-size: 0.8vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.google a
+{
+    text-decoration: none;
+    color: #FCC822;
+}
+.wrapper
+{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.already-have a
+{
+ color: #FCC822;
+ margin-left: 0.5vw;
+}
+.already-have
+{
+    margin-top: 2vh;
+    margin-left: 2vw;
+    color: rgba(0, 0, 0, 0.61);
+    font-family: Roboto;
+    font-size: 0.8vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#sign-up-button
+{
+    margin-top: 5vh;
+    margin-left: 2vw;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 2vh;
+    border:0;
+    font-size: 0.8vw;
+    color:#FFFFFF;
+    text-decoration: none;
+    background: linear-gradient(95deg, #FCC822 0%, #FFCD2E 100%);
+    box-shadow: 0px 10.45024px 23.22276px -6.96683px #FBE18F;
+    width:7.5vw;
+    cursor:pointer;
+
+}
+#sign-up-button:hover{
+    background: linear-gradient(95deg, white 0%, white 100%);
+    color: #FCC822;
+    box-shadow: 0px 0.1vw 2.5vh -0.2vw #FBE18F;
+    transition: all 0.3s ease;
+    border: 0.581px solid #FCC822;
+}
