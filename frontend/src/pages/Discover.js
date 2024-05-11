@@ -49,6 +49,7 @@ function Discover() {
                     <h3>{quiz.title}</h3>
                     <p>{quiz.description}</p>
                     {quiz.image && <img src={`/img/${quiz.image}`} alt="Quiz" />}
+                    <a href="#>">PLAY</a>
                 </div>
             ))}
 
