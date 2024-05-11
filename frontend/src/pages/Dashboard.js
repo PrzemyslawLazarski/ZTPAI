@@ -4,7 +4,7 @@ import './Dashboard.css'; // Importuj styl CSS
 function Dashboard() {
 
     useEffect(() => {
-        document.title = 'Dasboard';
+        document.title = 'Dashboard';
       }, []);
 
   return (

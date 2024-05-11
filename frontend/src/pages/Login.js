@@ -39,7 +39,7 @@ function Login() {
           </div>
         </div>
       </div>
-      <div className="right">
+      <div className="login-right">
         <div className="image">
           <img src="/img/people2.svg" alt="Image"></img>
         </div>
