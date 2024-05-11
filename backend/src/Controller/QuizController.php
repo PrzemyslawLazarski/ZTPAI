@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 
+
 #[Route('/api/quizzes', name: 'quiz_')]
 class QuizController extends AbstractController
 {

@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios'; // Importujemy bibliotekę Axios
 import './Dashboard.css'; // Importuj styl CSS
 
-function MyQuizzes() {
+function Discover() {
   const [quizzes, setQuizzes] = useState([]); // Stan do przechowywania quizów
 
   useEffect(() => {
-    document.title = 'My Quizzes';
+    document.title = 'Discover';
     // Funkcja do pobierania quizów z API
     const fetchQuizzes = async () => {
       try {
@@ -35,17 +35,13 @@ function MyQuizzes() {
       </div>
       <div className="right">
         <div className="board">
-          My Quizzes
+          Discover
           <div className="separator"></div>
           <header>
             <div className="search-bar">
               <input placeholder="search quiz" />
             </div>
-            <a href="validateQuiz">
-              <div className="Add">
-                Add
-              </div>
-            </a>
+            
           </header>
           <section className="projects">
             {/* Wyświetlanie quizów pobranych z API */}
@@ -62,4 +58,4 @@ function MyQuizzes() {
   );
 }
 
-export default MyQuizzes;
+export default Discover;

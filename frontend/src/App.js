@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import HowItWorks from './pages/How-it-works';
 import Dashboard from './pages/Dashboard';
 import MyQuizzes from './pages/My-quizzes';
+import Discover from './pages/Discover';
 
 
 
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
           <Route path="how-it-works" element={<HowItWorks />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="my-quizzes" element={<MyQuizzes />} />
+          <Route path="discover" element={<Discover />} />
         </Route>
     )
   
