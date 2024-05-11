@@ -7,11 +7,11 @@ import HowItWorks from './pages/How-it-works';
 import Dashboard from './pages/Dashboard';
 import MyQuizzes from './pages/My-quizzes';
 
-import RootLayout from './RootLayout';
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-        <Route path="/" element={<RootLayout />}>
+        <Route path="/" >
           <Route path="/" element={<Home />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />

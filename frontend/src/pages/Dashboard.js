@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Dashboard.css'; // Importuj styl CSS
 
 function Dashboard() {
+
+    useEffect(() => {
+        document.title = 'Dasboard';
+      }, []);
+
   return (
     <div className="container">
       <div className="menu">
@@ -12,7 +17,7 @@ function Dashboard() {
           <a href="dashboard"><i className="fas fa-home"></i> Home</a><br /><br />
           <a href="my-quizzes"><i className="fas fa-puzzle-piece"></i> My Quizzes</a><br /><br />
           <a href="discover"><i className="fas fa-compass"></i> Discover</a><br /><br />
-          <a className="logout-button" href="/logout"><i className="fas fa-sign-out-alt"></i> Log Out</a>
+          <a className="logout-button" href="/"><i className="fas fa-sign-out-alt"></i> Log Out</a>
         </div>
       </div>
       <div className="board">

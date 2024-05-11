@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Login.css'; 
 
 function Login() {
+
+  useEffect(() => {
+    document.title = 'Login';
+  }, []);
+
   return (
     <div className="container">
       <div className="left">

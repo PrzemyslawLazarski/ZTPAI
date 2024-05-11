@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Login.css'; // Zaimportuj styl CSS
 
 function Register() {
+useEffect(() => {
+    document.title = 'Register';
+  }, []);
+
   return (
     <div className="container">
       <div className="left">

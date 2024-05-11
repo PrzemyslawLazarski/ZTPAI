@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Home.css'; // Załóżmy, że plik App.css zawiera stylizację z pliku main.css
 
 function Home() {
+
+  useEffect(() => {
+    document.title = 'QuizNinja';
+  }, []);
+
   return (
     <div className="home-container">
       <div className="home-header">

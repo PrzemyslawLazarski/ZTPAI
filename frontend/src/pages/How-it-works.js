@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Home.css'; // Zaimportuj styl CSS
 
 function HowItWorks() {
+
+useEffect(() => {
+    document.title = 'How it works?';
+  }, []);
+
   return (
     <div className="home-container">
       <div className="home-header">
