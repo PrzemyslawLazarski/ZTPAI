@@ -107,3 +107,9 @@ answer_delete:
     controller: App\Controller\AnswerController::delete
     methods: DELETE
 
+
+login:
+    path: /login
+    controller: App\Controller\LoginController::login
+    methods: POST
+

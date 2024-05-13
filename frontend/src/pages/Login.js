@@ -1,4 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate} from 'react-router-dom';
+
+import axios from 'axios'; // Importujemy bibliotekę Axios
 import './Login.css'; 
 
 function Login() {
@@ -6,6 +9,37 @@ function Login() {
   useEffect(() => {
     document.title = 'Login';
   }, []);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  function handleClick() {
+    
+  }
+
+  const login = (e) => {
+    e.preventDefault()
+      axios
+      .post("https://localhost:8001/login", {
+        email,
+        password,
+      })
+      navigate("/dashboard");
+  };
+
+  const onChangeEmail = (e) => {
+    const email = e.target.value;
+    setEmail(email);
+  };
+
+  const onChangePassword = (e) => {
+    const password = e.target.value;
+    setPassword(password);
+  };
+
+  
 
   return (
     <div className="container">
@@ -18,9 +52,9 @@ function Login() {
           Please login/Signup to your account.
         </div>
         <div className="login-container">
-          <form className="login" action="login" method="POST">
-            <input name="email" type="text" placeholder="Email Address"></input><br />
-            <input name="password" type="password" placeholder="Password"></input><br />
+          <form className="login" onSubmit={login}>
+            <input name="email" type="text" placeholder="Email Address" onChange={onChangeEmail}></input><br />
+            <input name="password" type="password" placeholder="Password" onChange={onChangePassword}></input><br />
             <div className="log">
               <button type="submit" className="login-button">Login</button>
               <a href="/register" className="sign-up-button">Sign up</a>
@@ -41,7 +75,7 @@ function Login() {
       </div>
       <div className="login-right">
         <div className="image">
-          <img src="/img/people2.svg" alt="Image"></img>
+          <img src="/img/people2.svg" alt="People"></img>
         </div>
         <div className="go-back-button">
           <a href="/">Go back</a>
