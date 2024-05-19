@@ -1,29 +1,16 @@
 import React, { useEffect } from 'react';
-import './Home.css'; // Załóżmy, że plik App.css zawiera stylizację z pliku main.css
+import { Link } from 'react-router-dom';
+import './Home.css'; 
+import MenuBar from './MenuBar'; 
 
 function Home() {
-
   useEffect(() => {
     document.title = 'QuizNinja';
   }, []);
 
   return (
     <div className="home-container">
-      <div className="home-header">
-        <div className="home-bar">
-          <div className="home-logo">
-            <a href="/"><img src="/img/logo.svg" alt="Logo"></img></a>
-          </div>
-          <div className="home-bar-buttons">
-            <a href="/how-it-works">How it works?</a>
-            <a href="#">About Us</a>
-            <a href="#">Features</a>
-          </div>
-        </div>
-        <div className="home-login-button">
-          <a href="/login">Login</a>
-        </div>
-      </div>
+      <MenuBar />
       <div className="home-separator"></div>
       <div className="home-row-content">
         <div className="home-vertical-content">
@@ -36,18 +23,18 @@ function Home() {
           </div>
           <div className="home-start-bar">
             <div className="home-start-button">
-              <a href="/login">Start solving</a>
+              <Link to="/login">Start solving</Link>
             </div>
             <div className="home-knowmore-button">
-              <a href="#">Know more</a>
+              <Link to="/aboutus">Know more</Link>
             </div>
           </div>
           <div className="home-smaller-image">
-            <img src="/img/smaller-lines.svg" alt="small Image"></img>
+            <img src="/img/smaller-lines.svg" alt="small" />
           </div>
         </div>
         <div className="home-image">
-          <img src="/img/people1.svg" alt="Large Image"></img>
+          <img src="/img/people1.svg" alt="Large" />
         </div>
       </div>
     </div>

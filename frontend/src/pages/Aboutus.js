@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './Home.css'; 
 import MenuBar from './MenuBar'; 
 
-function HowItWorks() {
+function AboutUs() {
 
 useEffect(() => {
     document.title = 'How it works?';
@@ -15,32 +15,27 @@ useEffect(() => {
       <div className="home-row-content">
         <div className="home-vertical-content">
           <div className="home-motto">
-            How it works?
+            About Us
           </div>
           <div className="home-lower-motto">
-            | Only 4 steps!
+            | Nice to meet you!
           </div>
           <div className="how-it-works-content">
             <p>
-              1. Registration:
-              We start with the first step - register on our website! Enter your details so
-              that we can tailor the quizzes to your interests.
+            Our mission is to make learning enjoyable and accessible to everyone. That's why we 
+            create quizzes that engage, inspire and make acquiring knowledge a fascinating journey.
             </p>
             <p>
-              2. Choose Topics:
-              Once logged in, explore a variety of quiz topics. Choose what interests you,
-              whether it's history, science or pop culture.
+            Regardless of, whether you are students, teachers or simply lovers of acquiring new 
+            information we hope that our quizzes will provide you with unforgettable moments and
+            broaden your horizons.
             </p>
             <p>
-              3. Choose Quiz:
-              When you find an interesting quiz, click and dive into the world of questions!
-              Answer, learn and have fun.
+            Join our quiz community and let's discover the world of knowledge together in a fun
+            and interactive way!
             </p>
-            <p>
-              4. Check Results:
-              After completing the quiz, see your results and find out how much you know.
-              It's a great way to track your progress!
-            </p>
+            
+            
           </div>
           <div className="home-start-bar">
             <div className="home-start-button">
@@ -59,4 +54,4 @@ useEffect(() => {
   );
 }
 
-export default HowItWorks;
+export default AboutUs;

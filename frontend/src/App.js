@@ -1,35 +1,37 @@
 import React from 'react';
-import { createBrowserRouter,Route, createRoutesFromElements, RouterProvider } from 'react-router-dom';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import HowItWorks from './pages/How-it-works';
+import AboutUs from './pages/Aboutus';
+import Features from './pages/Features';
 import Dashboard from './pages/Dashboard';
 import MyQuizzes from './pages/My-quizzes';
 import Discover from './pages/Discover';
+import MenuBar from './pages/MenuBar';
 
 
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-        <Route path="/" >
-          <Route path="/" element={<Home />} />
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
-          <Route path="how-it-works" element={<HowItWorks />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="my-quizzes" element={<MyQuizzes />} />
-          <Route path="discover" element={<Discover />} />
-        </Route>
-    )
-  
-)
+
 
 function App() {
   return (
-    
-    
-      <RouterProvider router={router} />
+  
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Home/>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/how-it-works" element={<HowItWorks/>}/>
+        <Route path="/aboutus" element={<AboutUs/>}/>
+        <Route path="/features" element={<Features/>}/>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/my-quizzes" element={<MyQuizzes />} />
+        <Route path="/discover" element={<Discover />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/menubar" element={<MenuBar />} />
+      </Routes>
+    </Router>
     
   );
 }

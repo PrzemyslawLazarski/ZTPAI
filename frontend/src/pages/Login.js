@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate, Link} from 'react-router-dom';
 
-import axios from 'axios'; // Importujemy bibliotekę Axios
+import axios from 'axios'; 
 import './Login.css'; 
 
 function Login() {
@@ -45,7 +45,7 @@ function Login() {
     <div className="container">
       <div className="left">
         <div className="logo">
-          <a href="/"><img src="/img/logo.svg" alt="Logo"></img></a>
+          <Link to="/"><img src="/img/logo.svg" alt="Logo"></img></Link>
         </div>
         <div className="welcome-message">
           Welcome  back!<br />
@@ -78,7 +78,7 @@ function Login() {
           <img src="/img/people2.svg" alt="People"></img>
         </div>
         <div className="go-back-button">
-          <a href="/">Go back</a>
+          <Link to="/">Go back</Link>
         </div>
       </div>
     </div>

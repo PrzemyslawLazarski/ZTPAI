@@ -21,7 +21,7 @@
 .home-bar
 {
     display: flex;
-    
+    flex-direction: row;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -30,11 +30,14 @@
 }
 .home-bar-buttons
 {
+    display: flex;
+    flex-direction: row;
     margin-top: 5vh;
-    margin-left: 42vw;
+    margin-left: 35vw;
 }
 .home-bar-buttons a
 {
+    width:7vw;
     color: #E0E0E0;
     font-size: 2vh;
     font-style: normal;
@@ -194,5 +197,6 @@
     margin-top: 3vh;
     margin-left: 4vw;
     height:30vh;
+    width:40vw;
 
 }

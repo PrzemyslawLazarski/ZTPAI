@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import './Login.css'; // Zaimportuj styl CSS
+import { Link } from 'react-router-dom';
+import './Login.css'; 
 
 function Register() {
 useEffect(() => {
@@ -10,7 +11,7 @@ useEffect(() => {
     <div className="container">
       <div className="left">
         <div className="logo">
-          <a href="/"><img src="img/logo.svg" alt="Logo" /></a>
+          <Link to="/"><img src="img/logo.svg" alt="Logo" /></Link>
         </div>
         <div className="welcome-message">
           Welcome!<br />
@@ -25,7 +26,7 @@ useEffect(() => {
             <input name="email" type="text" placeholder="email@email.com" />
             <input name="password" type="password" placeholder="password" />
             <input name="confirmedPassword" type="password" placeholder="confirm password" />
-            <div className="already-have"> Already have an account?<a href="login">Login</a></div>
+            <div className="already-have"> Already have an account?<Link to="login">Login</Link></div>
             <button type="submit" name='sign-up-button' id="sign-up-button">Sign up</button>
           </form>
         </div>
@@ -35,7 +36,7 @@ useEffect(() => {
           <img src="img/people2.svg" alt="People" />
         </div>
         <div className="go-back-button">
-          <a href="/">Go back</a>
+          <Link to="/">Go back</Link>
         </div>
       </div>
     </div>
