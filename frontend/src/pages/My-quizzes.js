@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link} from 'react-router-dom';
 import axios from 'axios'; 
 import './Dashboard.css'; 
 import NavBar from './NavBar';
@@ -32,11 +33,11 @@ function MyQuizzes() {
             <div className="search-bar">
               <input placeholder="search quiz" />
             </div>
-            <a href="validateQuiz">
+            <Link to="/AddQuiz">
               <div className="Add">
                 Add
               </div>
-            </a>
+            </Link>
           </header>
           <section className="projects">
             {quizzes.map((quiz) => (

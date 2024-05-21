@@ -11,36 +11,10 @@ function Login() {
     document.title = 'Login';
   }, []);
 
- // const [email, setEmail] = useState("");
- // const [password, setPassword] = useState("");
-
-  
 
   const navigate = useNavigate();
 
- 
-/*
-  const login = (e) => {
-    e.preventDefault()
-      axios
-      .post("https://localhost:8001/login", {
-        email,
-        password,
-      })
-      navigate("/dashboard");
-  };
-  
 
-  const onChangeEmail = (e) => {
-    const email = e.target.value;
-    setEmail(email);
-  };
-
-  const onChangePassword = (e) => {
-    const password = e.target.value;
-    setPassword(password);
-  };
-*/
   const [values,setValues] = useState({
     email: "",
     password: ""

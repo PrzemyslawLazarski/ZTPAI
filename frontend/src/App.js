@@ -9,7 +9,8 @@ import Features from './pages/Features';
 import Dashboard from './pages/Dashboard';
 import MyQuizzes from './pages/My-quizzes';
 import Discover from './pages/Discover';
-import MenuBar from './pages/MenuBar';
+import AddQuiz from './pages/AddQuiz';
+
 
 
 
@@ -29,7 +30,7 @@ function App() {
         <Route path="/my-quizzes" element={<MyQuizzes />} />
         <Route path="/discover" element={<Discover />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/menubar" element={<MenuBar />} />
+        <Route path="/addquiz" element={<AddQuiz />} />
       </Routes>
     </Router>
     
