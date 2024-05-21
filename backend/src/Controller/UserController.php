@@ -42,7 +42,7 @@ class UserController extends AbstractController
         $user->setNickname($data['nickname']);
         $user->setEmail($data['email']);
         $user->setPassword($data['password']);
-        $user->setRoleId($data['role_id']);
+        $user->setRole($data['role_id']);
         // Set other properties...
 
         $this->entityManager->persist($user);
@@ -58,7 +58,7 @@ class UserController extends AbstractController
         $user->setNickname($data['nickname']);
         $user->setEmail($data['email']);
         $user->setPassword($data['password']);
-        $user->setRoleId($data['role_id']);
+        $user->setRole($data['role_id']);
         // Update other properties...
 
         $this->entityManager->flush();

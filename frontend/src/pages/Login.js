@@ -3,6 +3,7 @@ import { useNavigate, Link} from 'react-router-dom';
 
 import axios from 'axios'; 
 import './Login.css'; 
+import Validation from './LoginValidation';
 
 function Login() {
 
@@ -10,15 +11,15 @@ function Login() {
     document.title = 'Login';
   }, []);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+ // const [email, setEmail] = useState("");
+ // const [password, setPassword] = useState("");
+
+  
 
   const navigate = useNavigate();
 
-  function handleClick() {
-    
-  }
-
+ 
+/*
   const login = (e) => {
     e.preventDefault()
       axios
@@ -28,6 +29,7 @@ function Login() {
       })
       navigate("/dashboard");
   };
+  
 
   const onChangeEmail = (e) => {
     const email = e.target.value;
@@ -38,8 +40,20 @@ function Login() {
     const password = e.target.value;
     setPassword(password);
   };
+*/
+  const [values,setValues] = useState({
+    email: "",
+    password: ""
+  });
 
-  
+  const [errors,setErrors] = useState({})
+  const handleInput = (event) => {
+    setValues(prev => ({...prev, [event.target.name]: [event.target.value]}))
+  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setErrors(Validation(values));
+  }
 
   return (
     <div className="container">
@@ -52,14 +66,20 @@ function Login() {
           Please login/Signup to your account.
         </div>
         <div className="login-container">
-          <form className="login" onSubmit={login}>
-            <input name="email" type="text" placeholder="Email Address" onChange={onChangeEmail}></input><br />
-            <input name="password" type="password" placeholder="Password" onChange={onChangePassword}></input><br />
+
+          <form className="login" onSubmit={handleSubmit}>
+            
+            <input name="email" type="text" placeholder="Email Address" onChange={handleInput}></input>
+            {errors.email && <span className='text-danger'>{errors.email} </span> }
+            
+            <input name="password" type="password" placeholder="Password" onChange={handleInput}></input>
+            {errors.password && <span className='text-danger'>{errors.password} </span> }
             <div className="log">
               <button type="submit" className="login-button">Login</button>
-              <a href="/register" className="sign-up-button">Sign up</a>
+              <Link to="/register" className="sign-up-button">Sign up</Link>
             </div>
           </form>
+
           <div className="alt-login">
             <div className="or-login-with">
               Or login with

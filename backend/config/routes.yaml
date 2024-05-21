@@ -5,27 +5,27 @@ controllers:
     type: attribute
 
 
-user_index:
+User_index:
     path: /api/users
     controller: App\Controller\UserController::index
     methods: GET
 
-user_show:
+User_show:
     path: /api/users/{id}
     controller: App\Controller\UserController::show
     methods: GET
 
-user_create:
+User_create:
     path: /api/users
     controller: App\Controller\UserController::create
     methods: POST
 
-user_update:
+User_update:
     path: /api/users/{id}
     controller: App\Controller\UserController::update
     methods: PUT
 
-user_delete:
+User_delete:
     path: /api/users/{id}
     controller: App\Controller\UserController::delete
     methods: DELETE
@@ -56,53 +56,53 @@ Quiz_delete:
     methods: DELETE
 
 
-question_index:
+Question_index:
     path: /api/questions
     controller: App\Controller\QuestionController::index
     methods: GET
 
-question_show:
+Question_show:
     path: /api/questions/{id}
     controller: App\Controller\QuestionController::show
     methods: GET
 
-question_create:
+Question_create:
     path: /api/questions
     controller: App\Controller\QuestionController::create
     methods: POST
 
-question_update:
+Question_update:
     path: /api/questions/{id}
     controller: App\Controller\QuestionController::update
     methods: PUT
 
-question_delete:
+Question_delete:
     path: /api/questions/{id}
     controller: App\Controller\QuestionController::delete
     methods: DELETE
 
 
-answer_index:
+Answer_index:
     path: /api/answers
     controller: App\Controller\AnswerController::index
     methods: GET
 
-answer_show:
+Answer_show:
     path: /api/answers/{id}
     controller: App\Controller\AnswerController::show
     methods: GET
 
-answer_create:
+Answer_create:
     path: /api/answers
     controller: App\Controller\AnswerController::create
     methods: POST
 
-answer_update:
+Answer_update:
     path: /api/answers/{id}
     controller: App\Controller\AnswerController::update
     methods: PUT
 
-answer_delete:
+Answer_delete:
     path: /api/answers/{id}
     controller: App\Controller\AnswerController::delete
     methods: DELETE
@@ -113,3 +113,7 @@ login:
     controller: App\Controller\LoginController::login
     methods: POST
 
+register:
+    path: /register
+    controller: App\Controller\RegisterController::register
+    methods: POST

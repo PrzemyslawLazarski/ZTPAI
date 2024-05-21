@@ -4,12 +4,15 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Role;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
-class User
+class User implements PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -34,10 +37,19 @@ class User
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Role $role = null;
 
-    public function __construct()
+    public function __construct(EntityManagerInterface $entityManager)
     {
         $this->quizzes = new ArrayCollection();
+
+        // Sprawdź, czy istnieje rola o ID równym 0
+        $defaultRole = $entityManager->getRepository(Role::class)->find(0);
+
+        // Jeśli rola o ID równym 0 istnieje, przypisz ją jako domyślną rolę użytkownika
+        if ($defaultRole instanceof Role) {
+            $this->role = $defaultRole;
+        }
     }
+
 
     public function getId(): ?int
     {

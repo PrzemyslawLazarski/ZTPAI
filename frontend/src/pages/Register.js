@@ -1,11 +1,38 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import './Login.css'; 
+import axios from 'axios'; 
+import Validation from './RegisterValidation'
 
 function Register() {
 useEffect(() => {
     document.title = 'Register';
   }, []);
+
+  const [values,setValues] = useState({
+    nickname: "",
+    email: "",
+    password: "",
+    confirmedPassword: ""
+  });
+  const navigate = useNavigate();
+  const [errors,setErrors] = useState({})
+
+  const handleInput = (event) => {
+  const { name, value } = event.target;
+  setValues(prev => ({ ...prev, [name]: value }));
+};
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setErrors(Validation(values));
+    if(errors.nickname === "" && errors.email === "" && errors.password === "")
+      {
+        axios.post('https://localhost:8001/register', values)
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+      }
+  }
 
   return (
     <div className="container">
@@ -18,14 +45,16 @@ useEffect(() => {
           Kindly fill in this form to register.
         </div>
         <div className="login-container">
-          <form method="POST" action="/addUser" className="register">
-            <div className="messages">
-              {/* Tutaj możesz umieścić logikę wyświetlania wiadomości */}
-            </div>
-            <input name="nickname" type="text" placeholder="nickname" />
-            <input name="email" type="text" placeholder="email@email.com" />
-            <input name="password" type="password" placeholder="password" />
-            <input name="confirmedPassword" type="password" placeholder="confirm password" />
+          <form  action="" onSubmit={handleSubmit} className="register">
+            
+            <input name="nickname" onChange={handleInput} type="text" placeholder="nickname" />
+            {errors.nickname && <span className='text-danger'>{errors.nickname} </span> }
+            <input name="email" onChange={handleInput} type="text" placeholder="email@email.com" />
+            {errors.email && <span className='text-danger'>{errors.email} </span> }
+            <input name="password" onChange={handleInput} type="password" placeholder="password" />
+            {errors.password && <span className='text-danger'>{errors.password} </span> }
+            <input name="confirmedPassword"  onChange={handleInput} type="password" placeholder="confirm password" />
+            {errors.confirmedPassword && <span className='text-danger'>{errors.confirmedPassword} </span> }
             <div className="already-have"> Already have an account?<Link to="login">Login</Link></div>
             <button type="submit" name='sign-up-button' id="sign-up-button">Sign up</button>
           </form>
@@ -36,7 +65,7 @@ useEffect(() => {
           <img src="img/people2.svg" alt="People" />
         </div>
         <div className="go-back-button">
-          <Link to="/">Go back</Link>
+          <Link to="/login">Go back</Link>
         </div>
       </div>
     </div>
