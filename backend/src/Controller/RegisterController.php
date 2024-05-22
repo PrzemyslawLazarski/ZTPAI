@@ -1,5 +1,6 @@
 <?php
 
+// src/Controller/RegisterController.php
 namespace App\Controller;
 
 use App\Entity\User;
@@ -7,26 +8,35 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Role;
-
 class RegisterController extends AbstractController
 {
-
-    #[Route('/register', name: 'register', methods: ['POST'])]
-    public function register(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher, ValidatorInterface $validator): JsonResponse
+    #[Route('/api/register', name: 'register', methods: ['POST'])]
+    public function register(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): JsonResponse
     {
         $data = json_decode($request->getContent(), true);
+        $nickname = $data['nickname'];
+        $email = $data['email'];
+        $password = $data['password'];
 
+        // Check if user with the same email already exists
+        $existingUser = $entityManager->getRepository(User::class)->findOneBy(['email' => $email]);
+        if ($existingUser) {
+            return new JsonResponse(['success' => false, 'message' => 'Email already in use'], Response::HTTP_CONFLICT);
+        }
+
+        // Create new User entity
         $user = new User($entityManager);
-        $user->setEmail($data['email']);
-        $user->setNickname($data['nickname']);
-        $user->setPassword($passwordHasher->hashPassword($user, $data['password']));
 
-        // Sprawdź, czy istnieje rola o id 0
+        $user->setNickname($nickname);
+        $user->setEmail($email);
+
+        // Hash the password and set it to the user entity
+        $hashedPassword = $passwordHasher->hashPassword($user, $password);
+        $user->setPassword($hashedPassword);
         $role = $entityManager->getRepository(Role::class)->findOneBy(['id' => 0]);
 
         // Jeśli nie istnieje, utwórz nową rolę
@@ -39,18 +49,13 @@ class RegisterController extends AbstractController
 
         $user->setRole($role);
 
-        $errors = $validator->validate($user);
-        if (count($errors) > 0) {
-            $errorsString = (string) $errors;
-
-            return new JsonResponse(['errors' => $errorsString], Response::HTTP_BAD_REQUEST);
-        }
-
         $entityManager->persist($user);
         $entityManager->flush();
 
-        return new JsonResponse(['message' => 'User registered successfully'], Response::HTTP_CREATED);
+        return new JsonResponse(['success' => true, 'user' => [
+            'id' => $user->getId(),
+            'nickname' => $user->getNickname(),
+            'email' => $user->getEmail(),
+        ]], Response::HTTP_CREATED);
     }
-
-
 }

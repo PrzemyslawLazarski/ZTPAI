@@ -1,18 +1,22 @@
 <?php
 
 namespace App\Entity;
-
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Doctrine\ORM\EntityManagerInterface;
+
 use App\Entity\Role;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
-class User implements PasswordAuthenticatedUserInterface
+class User implements PasswordAuthenticatedUserInterface, UserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -85,10 +89,9 @@ class User implements PasswordAuthenticatedUserInterface
         return $this->password;
     }
 
-    public function setPassword(string $password): static
+    public function setPassword(string $password): self
     {
         $this->password = $password;
-
         return $this;
     }
 
@@ -132,5 +135,23 @@ class User implements PasswordAuthenticatedUserInterface
         $this->role = $role;
 
         return $this;
+    }
+    public function getRoles(): array
+    {
+        return ['ROLE_USER'];
+    }
+    public function getUserIdentifier(): string
+    {
+        return $this->email;
+    }
+
+    public function getSalt(): ?string
+    {
+        return null;
+    }
+
+    public function eraseCredentials(): void
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
     }
 }

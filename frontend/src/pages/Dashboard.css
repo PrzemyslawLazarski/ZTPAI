@@ -365,8 +365,15 @@ textarea {
 }
 .template-container
 {
-    width:40vw;
+    margin-top:15px;
+    width:35vw;
 }
+.template-container  input[type="text"], input[type="file"],textarea
+{
+    margin-left:7vw;
+    width:15vw;;
+}
+
 #questions-container
 {
     width:30vw;
@@ -378,9 +385,12 @@ textarea {
 }
 .template-header
 {
-   margin-left:24vw;
+   margin-left:14vw;
 }
 .quiz-header
 {
-    margin-left:5vw;
+    margin-left:13vw;
+}
+textarea{
+    height:12vh;
 }

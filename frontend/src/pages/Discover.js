@@ -6,13 +6,14 @@ import NavBar from './NavBar';
 
 function Discover() {
   const [quizzes, setQuizzes] = useState([]); 
+  const [searchTerm, setSearchTerm] = useState('');
   
   useEffect(() => {
     document.title = 'Discover';
     
     const fetchQuizzes = async () => {
       try {
-        const response = await axios.get('https://localhost:8001/api/quizzes');
+        const response = await axios.get('https://localhost:8001/api/quizzes'); 
         setQuizzes(response.data); 
       } catch (error) {
         console.error('Błąd pobierania quizów:', error);
@@ -21,6 +22,15 @@ function Discover() {
 
     fetchQuizzes(); 
   }, []);
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredQuizzes = quizzes.filter(quiz =>
+    quiz.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    quiz.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="container">
@@ -31,12 +41,16 @@ function Discover() {
           <div className="separator"></div>
           <header>
             <div className="search-bar">
-              <input placeholder="search quiz" />
+            <input 
+                placeholder="search quiz" 
+                value={searchTerm} 
+                onChange={handleSearchChange} 
+              />
             </div>
             
           </header>
           <section className="projects">
-            {quizzes.map((quiz) => (
+            {filteredQuizzes.map((quiz) => (
                 <div key={quiz.id}>
                     <h3>{quiz.title}</h3>
                     <p>{quiz.description}</p>

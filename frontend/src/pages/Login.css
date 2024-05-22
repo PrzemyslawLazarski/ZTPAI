@@ -57,7 +57,7 @@ input[type=password]{
     line-height: normal;
 
 }
-input[type=text] {
+input[type=text] ,textarea{
     
     width:36vw;
     height:4vh;
@@ -73,7 +73,10 @@ input[type=text] {
     line-height: normal;
 
 }
-
+input[type=file]{
+    font-family: Roboto;
+    font-weight: 500;
+}
 .login-right
 {
     width:50vw;
