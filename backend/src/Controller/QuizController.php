@@ -43,7 +43,7 @@ class QuizController extends AbstractController
         $quiz->setTitle($data['title']);
         $quiz->setDescription($data['description']);
         $quiz->setImage($data['image']);
-        $quiz->setIdAssignedBy($data['id_assigned_by']);
+        //$quiz->setIdAssignedBy($data['id_assigned_by']);
         // Set other properties...
 
         $this->entityManager->persist($quiz);
@@ -59,7 +59,7 @@ class QuizController extends AbstractController
         $quiz->setTitle($data['title']);
         $quiz->setDescription($data['description']);
         $quiz->setImage($data['image']);
-        $quiz->setIdAssignedBy($data['id_assigned_by']);
+        //$quiz->setIdAssignedBy($data['id_assigned_by']);
         // Update other properties...
 
         $this->entityManager->flush();
