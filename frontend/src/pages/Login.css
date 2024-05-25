@@ -57,7 +57,7 @@ input[type=password]{
     line-height: normal;
 
 }
-input[type=text] ,textarea{
+login-container input[type=text] ,textarea{
     
     width:36vw;
     height:4vh;

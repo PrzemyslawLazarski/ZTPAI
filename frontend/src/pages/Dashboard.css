@@ -202,7 +202,7 @@ textarea {
     border-bottom: 1px solid gray;
     padding: 1em;
     
-    width: 50%;
+    
 }
 
 .projects ,.discoverProjects{
@@ -376,7 +376,27 @@ textarea {
 
 #questions-container
 {
+    margin-top:16px;
     width:30vw;
+}
+
+#questions-container input[type="radio"]
+{
+       margin-top:13px;
+}
+#questions-container input[type="text"]
+{
+       width:15vw;
+}
+.answer-container
+{
+    display:flex;
+    flex-direction: row;
+}
+.checkbox-container
+{
+    width:20px;
+    margin-left:0;
 }
 .header
 {

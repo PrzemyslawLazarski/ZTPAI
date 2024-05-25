@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Question;
-use Doctrine\Persistence\ManagerRegistry as PersistenceManagerRegistry;
+use App\Entity\Answer;
 
 #[Route('/api/quizzes', name: 'quiz_')]
 class QuizController extends AbstractController
@@ -48,13 +48,13 @@ class QuizController extends AbstractController
     }
 
     #[Route('/', name: 'create', methods: ['POST'])]
-    public function create(Request $request, PersistenceManagerRegistry $doctrine): JsonResponse
+    public function create(Request $request): JsonResponse
     {
         $data = json_decode($request->getContent(), true);
         $title = $data['title'];
         $description = $data['description'];
         $imageBase64 = $data['image'];
-        $questionsData = $data['questions']; // Pobierz dane pytań
+        $questionsData = $data['questions'];
 
         if ($imageBase64) {
             $imageParts = explode(";base64,", $imageBase64);
@@ -79,19 +79,33 @@ class QuizController extends AbstractController
         $quiz->setDescription($description);
         $quiz->setImage($sanitizedFilename);
 
-// Zapisz quiz
         $this->entityManager->persist($quiz);
-        $this->entityManager->flush();
 
-// Dodaj pytania do quizu
-        foreach ($questionsData as $questionText) {
+        foreach ($questionsData as $questionData) {
+            $questionText = $questionData['text'];
+            $answersData = $questionData['answers'];
+
             $question = new Question();
             $question->setQuestionText($questionText);
             $question->setQuiz($quiz);
-            $this->entityManager->persist($question);
-        }
-        $this->entityManager->flush();
 
+            $this->entityManager->persist($question);
+
+            foreach ($answersData as $answerData) {
+                $answerText = $answerData['text'];
+                $isCorrect = $answerData['isCorrect'];
+
+                $answer = new Answer();
+                $answer->setAnswerText($answerText);
+                $answer->setIsCorrect($isCorrect);
+                $answer->setQuestion($question);
+
+                $this->entityManager->persist($answer);
+            }
+        }
+
+
+        $this->entityManager->flush();
 
         return $this->json($quiz, Response::HTTP_CREATED, [], [
             'groups' => 'quiz:read',
@@ -101,79 +115,5 @@ class QuizController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'update', methods: ['PUT'])]
-    public function update(Quiz $quiz, Request $request): JsonResponse
-    {
-        $data = json_decode($request->getContent(), true);
-        $title = $data['title'];
-        $description = $data['description'];
-        $imageBase64 = $data['image'];
 
-        if ($imageBase64) {
-            $imageData = explode(',', $imageBase64)[1];
-            $imagePath = uniqid() . '.png';
-            $fullImagePath = $this->getParameter('photos_directory') . '/' . $imagePath;
-
-            // Create directory if it doesn't exist
-            $directoryPath = dirname($fullImagePath);
-            if (!is_dir($directoryPath)) {
-                mkdir($directoryPath, 0755, true);
-            }
-
-            file_put_contents($fullImagePath, base64_decode($imageData));
-        } else {
-            return $this->json(['error' => 'Invalid image file'], Response::HTTP_BAD_REQUEST);
-        }
-
-        $quiz->setTitle($title);
-        $quiz->setDescription($description);
-        $quiz->setImage('img/' . $imagePath);
-
-        $this->entityManager->flush();
-
-
-        return $this->json($quiz, 200, [], [
-            'groups' => 'quiz:read',
-            'circular_reference_handler' => function ($object) {
-                return $object->getId();
-            }
-        ]);
-    }
-
-    #[Route('/{id}', name: 'delete', methods: ['DELETE'])]
-    public function delete(Quiz $quiz): Response
-    {
-        $this->entityManager->remove($quiz);
-        $this->entityManager->flush();
-
-        return new Response(null, Response::HTTP_NO_CONTENT);
-    }
-
-    #[Route('/{id}/questions', name: 'add_question', methods: ['POST'])]
-    public function addQuestion(int $id, Request $request): JsonResponse
-    {
-        $data = json_decode($request->getContent(), true);
-        $questionText = $data['question_text'];
-
-        $quiz = $this->entityManager->getRepository(Quiz::class)->find($id);
-
-        if (!$quiz) {
-            return $this->json(['error' => 'Quiz not found'], Response::HTTP_NOT_FOUND);
-        }
-
-        $question = new Question();
-        $question->setQuestionText($questionText);
-        $question->setQuiz($quiz);
-
-        $this->entityManager->persist($question);
-        $this->entityManager->flush();
-
-
-        return $this->json($question, Response::HTTP_CREATED, [], [
-            'groups' => 'question:read',
-            'circular_reference_handler' => function ($object) {
-                return $object->getId();
-            }
-        ]);
-    }
 }

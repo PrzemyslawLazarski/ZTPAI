@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import NavBar from './NavBar';
 
@@ -8,8 +8,18 @@ function AddQuiz() {
     title: '',
     description: '',
     image: '',
-    filename: '', 
-    questions: ['']
+    filename: '',
+    questions: [
+      {
+        text: '',
+        answers: [
+          { text: '', isCorrect: false },
+          { text: '', isCorrect: false },
+          { text: '', isCorrect: false },
+          { text: '', isCorrect: false }
+        ]
+      }
+    ]
   });
 
   const navigate = useNavigate();
@@ -23,7 +33,7 @@ function AddQuiz() {
         setFormData((prevData) => ({
           ...prevData,
           image: reader.result,
-          filename: file.name 
+          filename: file.name
         }));
       };
       reader.readAsDataURL(file);
@@ -37,17 +47,54 @@ function AddQuiz() {
 
   const handleQuestionChange = (index, event) => {
     const newQuestions = [...formData.questions];
-    newQuestions[index] = event.target.value;
+    newQuestions[index].text = event.target.value;
     setFormData((prevData) => ({
       ...prevData,
       questions: newQuestions
     }));
   };
 
+  const handleAnswerChange = (questionIndex, answerIndex, event) => {
+    const newQuestions = [...formData.questions];
+    newQuestions[questionIndex].answers[answerIndex].text = event.target.value;
+    setFormData((prevData) => ({
+      ...prevData,
+      questions: newQuestions
+    }));
+  };
+
+  const handleCorrectAnswerChange = (questionIndex, answerIndex) => {
+    const newQuestions = [...formData.questions];
+    newQuestions[questionIndex].answers.forEach((answer, index) => {
+      if (index === answerIndex) {
+        answer.isCorrect = true;
+      } else {
+        answer.isCorrect = false;
+      }
+    });
+    setFormData((prevData) => ({
+      ...prevData,
+      questions: newQuestions
+    }));
+  };
+
+
+
   const addQuestion = () => {
     setFormData((prevData) => ({
       ...prevData,
-      questions: [...prevData.questions, '']
+      questions: [
+        ...prevData.questions,
+        {
+          text: '',
+          answers: [
+            { text: '', isCorrect: false },
+            { text: '', isCorrect: false },
+            { text: '', isCorrect: false },
+            { text: '', isCorrect: false }
+          ]
+        }
+      ]
     }));
   };
 
@@ -85,21 +132,44 @@ function AddQuiz() {
                 <input name="title" type="text" placeholder="Add title" value={formData.title} onChange={handleInputChange} />
                 <textarea name="description" rows="5" placeholder="Add description" value={formData.description} onChange={handleInputChange} />
                 <input type="file" name="image" onChange={handleInputChange} /><br />
-                {formData.questions.map((question, index) => (
-                  <input
-                    key={index}
-                    name="questions"
-                    type="text"
-                    placeholder={`Question ${index + 1}`}
-                    value={question}
-                    onChange={(e) => handleQuestionChange(index, e)}
-                  />
+              </div>
+              <div id="questions-container">
+                {formData.questions.map((question, questionIndex) => (
+                  <div key={questionIndex} className="question-container">
+                    <input
+                      name="question"
+                      type="text"
+                      placeholder={`Question ${questionIndex + 1}`}
+                      value={question.text}
+                      onChange={(e) => handleQuestionChange(questionIndex, e)}
+                    />
+                    {question.answers.map((answer, answerIndex) => (
+                      <div key={answerIndex} className="answer-container">
+                        <input
+                          name="answer"
+                          type="text"
+                          placeholder={`Answer ${answerIndex + 1}`}
+                          value={answer.text}
+                          onChange={(e) => handleAnswerChange(questionIndex, answerIndex, e)}
+                        />
+                        <div className="checkbox-container">
+                          <input
+                            type="radio"
+                            id={`correct_${questionIndex}_${answerIndex}`}
+                            checked={answer.isCorrect}
+                            onChange={() => handleCorrectAnswerChange(questionIndex, answerIndex)}
+                          />
+ 
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 ))}
-                <button type="button" onClick={addQuestion}>Add question</button>
               </div>
             </div>
             <div className="form-buttons">
               <button type="submit">Send</button>
+              <button type="button" onClick={addQuestion}>Add Question</button>
             </div>
           </form>
         </section>

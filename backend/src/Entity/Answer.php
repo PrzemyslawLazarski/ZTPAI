@@ -9,18 +9,19 @@ use Doctrine\ORM\Mapping as ORM;
 class Answer
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+    #[ORM\GeneratedValue(strategy: "AUTO")]
+    #[ORM\Column(type: "integer")]
+    private $id;
 
-    #[ORM\Column(length: 255)]
-    private ?string $answer_text = null;
+    #[ORM\Column(type: "string", length: 255)]
+    private $answerText;
 
-    #[ORM\Column]
-    private ?bool $is_correct = null;
+    #[ORM\Column(type: "boolean")]
+    private $isCorrect;
 
-    #[ORM\ManyToOne(inversedBy: 'answers')]
-    private ?Question $question = null;
+    #[ORM\ManyToOne(targetEntity: Question::class, inversedBy: "answers")]
+    #[ORM\JoinColumn(nullable: false)]
+    private $question;
 
     public function getId(): ?int
     {
@@ -29,24 +30,24 @@ class Answer
 
     public function getAnswerText(): ?string
     {
-        return $this->answer_text;
+        return $this->answerText;
     }
 
-    public function setAnswerText(string $answer_text): static
+    public function setAnswerText(string $answerText): self
     {
-        $this->answer_text = $answer_text;
+        $this->answerText = $answerText;
 
         return $this;
     }
 
-    public function isCorrect(): ?bool
+    public function getIsCorrect(): ?bool
     {
-        return $this->is_correct;
+        return $this->isCorrect;
     }
 
-    public function setCorrect(bool $is_correct): static
+    public function setIsCorrect(bool $isCorrect): self
     {
-        $this->is_correct = $is_correct;
+        $this->isCorrect = $isCorrect;
 
         return $this;
     }
@@ -56,7 +57,7 @@ class Answer
         return $this->question;
     }
 
-    public function setQuestion(?Question $question): static
+    public function setQuestion(?Question $question): self
     {
         $this->question = $question;
 
