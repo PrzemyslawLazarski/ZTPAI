@@ -6,37 +6,38 @@ use App\Repository\QuizRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
-#[ORM\Entity(repositoryClass: QuizRepository::class)]
+#[ORM\Entity]
 class Quiz
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+    #[ORM\Column(type: 'integer')]
+    #[Groups(['quiz:read', 'quiz:write'])]
+    private $id;
 
-    #[ORM\Column(length: 255)]
-    private ?string $title = null;
+    #[ORM\Column(type: 'string', length: 255)]
+    #[Groups(['quiz:read', 'quiz:write'])]
+    private $title;
 
-    #[ORM\Column(length: 255)]
-    private ?string $description = null;
+    #[ORM\Column(type: 'text')]
+    #[Groups(['quiz:read', 'quiz:write'])]
+    private $description;
 
-    #[ORM\Column(length: 255)]
-    private ?string $image = null;
+    #[ORM\Column(type: 'string', length: 255)]
+    #[Groups(['quiz:read', 'quiz:write'])]
+    private $image;
 
-    #[ORM\ManyToOne(inversedBy: 'quizzes')]
-    private ?User $createdBy = null;
-
-    /**
-     * @var Collection<int, Question>
-     */
-    #[ORM\OneToMany(targetEntity: Question::class, mappedBy: 'quiz')]
-    private Collection $questions;
+    #[ORM\OneToMany(targetEntity: Question::class, mappedBy: 'quiz', cascade: ['persist', 'remove'])]
+    #[Groups(['quiz:read'])]
+    private $questions;
 
     public function __construct()
     {
         $this->questions = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -79,17 +80,6 @@ class Quiz
         return $this;
     }
 
-    public function getCreatedBy(): ?User
-    {
-        return $this->createdBy;
-    }
-
-    public function setCreatedBy(?User $createdBy): static
-    {
-        $this->createdBy = $createdBy;
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, Question>
@@ -112,7 +102,6 @@ class Quiz
     public function removeQuestion(Question $question): static
     {
         if ($this->questions->removeElement($question)) {
-            // set the owning side to null (unless already changed)
             if ($question->getQuiz() === $this) {
                 $question->setQuiz(null);
             }

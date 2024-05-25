@@ -27,34 +27,43 @@ class QuizController extends AbstractController
     {
         $quizRepository = $this->entityManager->getRepository(Quiz::class);
         $quizzes = $quizRepository->findAll();
-        return $this->json($quizzes);
+
+        return $this->json($quizzes, 200, [], [
+            'groups' => 'quiz:read',
+            'circular_reference_handler' => function ($object) {
+                return $object->getId();
+            }
+        ]);
     }
 
     #[Route('/{id}', name: 'show', methods: ['GET'])]
     public function show(Quiz $quiz): JsonResponse
     {
-        return $this->json($quiz);
+        return $this->json($quiz, 200, [], [
+            'groups' => 'quiz:read',
+            'circular_reference_handler' => function ($object) {
+                return $object->getId();
+            }
+        ]);
     }
 
     #[Route('/', name: 'create', methods: ['POST'])]
-    public function create(Request $request,PersistenceManagerRegistry $doctrine): JsonResponse
+    public function create(Request $request, PersistenceManagerRegistry $doctrine): JsonResponse
     {
         $data = json_decode($request->getContent(), true);
         $title = $data['title'];
         $description = $data['description'];
         $imageBase64 = $data['image'];
+        $questionsData = $data['questions']; // Pobierz dane pytań
 
         if ($imageBase64) {
-            // Extract the file extension and original filename from the Base64 data URI
             $imageParts = explode(";base64,", $imageBase64);
             $imageData = base64_decode($imageParts[1]);
-            $filename = $data['filename'];  // Assuming the filename is sent in the request
+            $filename = $data['filename'];
 
-            // Sanitize the filename
             $sanitizedFilename = preg_replace('/[^a-zA-Z0-9\-\._]/', '_', $filename);
             $fullImagePath = $this->getParameter('photos_directory') . '/' . $sanitizedFilename;
 
-            // Create directory if it doesn't exist
             $directoryPath = dirname($fullImagePath);
             if (!is_dir($directoryPath)) {
                 mkdir($directoryPath, 0755, true);
@@ -70,10 +79,26 @@ class QuizController extends AbstractController
         $quiz->setDescription($description);
         $quiz->setImage($sanitizedFilename);
 
+// Zapisz quiz
         $this->entityManager->persist($quiz);
         $this->entityManager->flush();
 
-        return $this->json($quiz, Response::HTTP_CREATED);
+// Dodaj pytania do quizu
+        foreach ($questionsData as $questionText) {
+            $question = new Question();
+            $question->setQuestionText($questionText);
+            $question->setQuiz($quiz);
+            $this->entityManager->persist($question);
+        }
+        $this->entityManager->flush();
+
+
+        return $this->json($quiz, Response::HTTP_CREATED, [], [
+            'groups' => 'quiz:read',
+            'circular_reference_handler' => function ($object) {
+                return $object->getId();
+            }
+        ]);
     }
 
     #[Route('/{id}', name: 'update', methods: ['PUT'])]
@@ -106,7 +131,13 @@ class QuizController extends AbstractController
 
         $this->entityManager->flush();
 
-        return $this->json($quiz);
+
+        return $this->json($quiz, 200, [], [
+            'groups' => 'quiz:read',
+            'circular_reference_handler' => function ($object) {
+                return $object->getId();
+            }
+        ]);
     }
 
     #[Route('/{id}', name: 'delete', methods: ['DELETE'])]
@@ -117,6 +148,7 @@ class QuizController extends AbstractController
 
         return new Response(null, Response::HTTP_NO_CONTENT);
     }
+
     #[Route('/{id}/questions', name: 'add_question', methods: ['POST'])]
     public function addQuestion(int $id, Request $request): JsonResponse
     {
@@ -136,6 +168,12 @@ class QuizController extends AbstractController
         $this->entityManager->persist($question);
         $this->entityManager->flush();
 
-        return $this->json($question, Response::HTTP_CREATED);
+
+        return $this->json($question, Response::HTTP_CREATED, [], [
+            'groups' => 'question:read',
+            'circular_reference_handler' => function ($object) {
+                return $object->getId();
+            }
+        ]);
     }
 }

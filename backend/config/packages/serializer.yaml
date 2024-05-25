@@ -1,0 +1,15 @@
+# config/packages/serializer.yaml
+framework:
+  serializer:
+    enabled: true
+    circular_reference_handler: 'serializer.circular_reference_handler'
+
+services:
+  serializer.circular_reference_handler:
+    class: 'Closure'
+    factory: ['Closure', 'fromCallable']
+    arguments:
+      - '@App\Service\CircularReferenceHandler'
+
+  App\Service\CircularReferenceHandler:
+    arguments: []

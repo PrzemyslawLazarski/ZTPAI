@@ -1,18 +1,12 @@
-# This file is the entry point to configure your own services.
-# Files in the packages/ subdirectory configure your dependencies.
-
-# Put parameters here that don't need to change on each machine where the app is deployed
-# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+# config/services.yaml
 parameters:
     photos_directory: '%kernel.project_dir%/public/img'
-services:
-    # default configuration for services in *this* file
-    _defaults:
-        autowire: true      # Automatically injects dependencies in your services.
-        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
-    # makes classes in src/ available to be used as services
-    # this creates a service per class whose id is the fully-qualified class name
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
     App\:
         resource: '../src/'
         exclude:
@@ -20,7 +14,21 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
-    # Define your user provider service
     App\Security\UserProvider: ~
-    # Define any arguments or configuration for your service here
 
+    # Define the circular reference handler
+    serializer.circular_reference_handler:
+        class: 'Closure'
+        factory: ['Closure', 'fromCallable']
+        arguments:
+            - '@App\Service\CircularReferenceHandler'
+
+    # To jest opcjonalne, jeśli chcesz zarejestrować tę klasę jako usługę
+    App\Service\CircularReferenceHandler:
+        arguments: []
+
+# Framework serializer configuration
+framework:
+    serializer:
+        enabled: true
+        circular_reference_handler: 'serializer.circular_reference_handler'

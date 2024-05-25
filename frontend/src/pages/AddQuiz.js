@@ -8,8 +8,8 @@ function AddQuiz() {
     title: '',
     description: '',
     image: '',
-    filename: '', // Add this field
-    questions: []
+    filename: '', 
+    questions: ['']
   });
 
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ function AddQuiz() {
         setFormData((prevData) => ({
           ...prevData,
           image: reader.result,
-          filename: file.name // Set the filename
+          filename: file.name 
         }));
       };
       reader.readAsDataURL(file);
@@ -33,6 +33,22 @@ function AddQuiz() {
         [name]: value
       }));
     }
+  };
+
+  const handleQuestionChange = (index, event) => {
+    const newQuestions = [...formData.questions];
+    newQuestions[index] = event.target.value;
+    setFormData((prevData) => ({
+      ...prevData,
+      questions: newQuestions
+    }));
+  };
+
+  const addQuestion = () => {
+    setFormData((prevData) => ({
+      ...prevData,
+      questions: [...prevData.questions, '']
+    }));
   };
 
   const handleFormSubmit = async (event) => {
@@ -69,17 +85,21 @@ function AddQuiz() {
                 <input name="title" type="text" placeholder="Add title" value={formData.title} onChange={handleInputChange} />
                 <textarea name="description" rows="5" placeholder="Add description" value={formData.description} onChange={handleInputChange} />
                 <input type="file" name="image" onChange={handleInputChange} /><br />
-              </div>
-              <div id="questions-container">
-              <div className="question">
-                <input name="questions" type="text" placeholder="Question 1"></input>
-                
-            </div>
+                {formData.questions.map((question, index) => (
+                  <input
+                    key={index}
+                    name="questions"
+                    type="text"
+                    placeholder={`Question ${index + 1}`}
+                    value={question}
+                    onChange={(e) => handleQuestionChange(index, e)}
+                  />
+                ))}
+                <button type="button" onClick={addQuestion}>Add question</button>
               </div>
             </div>
             <div className="form-buttons">
               <button type="submit">Send</button>
-              
             </div>
           </form>
         </section>
