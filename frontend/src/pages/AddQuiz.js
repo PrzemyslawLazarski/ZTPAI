@@ -78,7 +78,40 @@ function AddQuiz() {
     }));
   };
 
+  const validateForm = () => {
+    const { title, description, image, questions } = formData;
 
+    if (!title.trim() || !description.trim() || !image) {
+      alert('Title, description, and image are required!');
+      return false;
+    }
+
+    for (const question of questions) {
+      if (!question.text.trim()) {
+        alert('Question cannot be empty!');
+        return false;
+      }
+
+      let correctAnswerSelected = false;
+      for (const answer of question.answers) {
+        if (!answer.text.trim()) {
+          alert('Answer cannot be empty!');
+          return false;
+        }
+
+        if (answer.isCorrect) {
+          correctAnswerSelected = true;
+        }
+      }
+
+      if (!correctAnswerSelected) {
+        alert('Select the correct answer for each question!');
+        return false;
+      }
+    }
+
+    return true;
+  };
 
   const addQuestion = () => {
     setFormData((prevData) => ({
@@ -100,6 +133,11 @@ function AddQuiz() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
     try {
       const response = await axios.post('https://localhost:8001/api/quizzes', formData);
       console.log('Quiz created:', response.data);
@@ -159,7 +197,6 @@ function AddQuiz() {
                             checked={answer.isCorrect}
                             onChange={() => handleCorrectAnswerChange(questionIndex, answerIndex)}
                           />
- 
                         </div>
                       </div>
                     ))}
