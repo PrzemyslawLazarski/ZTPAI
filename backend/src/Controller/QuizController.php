@@ -39,13 +39,45 @@ class QuizController extends AbstractController
     #[Route('/{id}', name: 'show', methods: ['GET'])]
     public function show(Quiz $quiz): JsonResponse
     {
-        return $this->json($quiz, 200, [], [
+        $questions = $quiz->getQuestions();
+        $questionsData = [];
+
+        foreach ($questions as $question) {
+            $answers = $question->getAnswers();
+            $answersData = [];
+
+            foreach ($answers as $answer) {
+                $answersData[] = [
+                    'id' => $answer->getId(),
+                    'text' => $answer->getAnswerText(),
+                    'isCorrect' => $answer->getIsCorrect(),
+                ];
+            }
+
+            $questionsData[] = [
+                'id' => $question->getId(),
+                'question_text' => $question->getQuestionText(),
+                'answers' => $answersData,
+            ];
+        }
+
+        $quizData = [
+            'id' => $quiz->getId(),
+            'title' => $quiz->getTitle(),
+            'description' => $quiz->getDescription(),
+            'image' => $quiz->getImage(),
+            'questions' => $questionsData,
+        ];
+
+        return $this->json($quizData, 200, [], [
             'groups' => 'quiz:read',
             'circular_reference_handler' => function ($object) {
                 return $object->getId();
             }
         ]);
     }
+
+
 
     #[Route('/', name: 'create', methods: ['POST'])]
     public function create(Request $request): JsonResponse
@@ -112,6 +144,33 @@ class QuizController extends AbstractController
             'circular_reference_handler' => function ($object) {
                 return $object->getId();
             }
+        ]);
+    }
+
+    #[Route('/api/quizzes/{id}/questions', name: 'quiz_questions', methods: ['GET'])]
+    public function getQuizQuestions(Quiz $quiz): JsonResponse
+    {
+        $questions = $quiz->getQuestions();
+
+        $data = [];
+        foreach ($questions as $question) {
+            $answers = $question->getAnswers()->map(function($answer) {
+                return [
+                    'id' => $answer->getId(),
+                    'answer_text' => $answer->getAnswerText(),
+                    'is_correct' => $answer->getIsCorrect()
+                ];
+            });
+
+            $data[] = [
+                'id' => $question->getId(),
+                'question_text' => $question->getQuestionText(),
+                'answers' => $answers
+            ];
+        }
+
+        return $this->json($data, 200, [], [
+            'groups' => ['quiz:read', 'question:read', 'answer:read']
         ]);
     }
 

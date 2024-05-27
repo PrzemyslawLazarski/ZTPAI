@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -10,30 +10,26 @@ import Dashboard from './pages/Dashboard';
 import MyQuizzes from './pages/My-quizzes';
 import Discover from './pages/Discover';
 import AddQuiz from './pages/AddQuiz';
-
-
-
-
-
+import QuizGame from './pages/QuizGame';
+import QuizDetails from './pages/QuizDetails';
 
 function App() {
   return (
-  
     <Router>
       <Routes>
-        <Route exact path="/" element={<Home/>}/>
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/how-it-works" element={<HowItWorks/>}/>
-        <Route path="/aboutus" element={<AboutUs/>}/>
-        <Route path="/features" element={<Features/>}/>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/how-it-works" element={<HowItWorks />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/features" element={<Features />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/my-quizzes" element={<MyQuizzes />} />
         <Route path="/discover" element={<Discover />} />
         <Route path="/register" element={<Register />} />
         <Route path="/addquiz" element={<AddQuiz />} />
+        <Route path="/quiz/:id" element={<QuizGame />} />
       </Routes>
     </Router>
-    
   );
 }
 

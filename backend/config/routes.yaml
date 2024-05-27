@@ -4,7 +4,6 @@ controllers:
         namespace: App\Controller
     type: attribute
 
-
 User_index:
     path: /api/users
     controller: App\Controller\UserController::index
@@ -55,6 +54,10 @@ Quiz_delete:
     controller: App\Controller\QuizController::delete
     methods: DELETE
 
+Quiz_questions:
+    path: /api/quizzes/{id}/questions
+    controller: App\Controller\QuizController::getQuizQuestions
+    methods: GET
 
 Question_index:
     path: /api/questions
@@ -81,7 +84,6 @@ Question_delete:
     controller: App\Controller\QuestionController::delete
     methods: DELETE
 
-
 Answer_index:
     path: /api/answers
     controller: App\Controller\AnswerController::index
@@ -106,7 +108,6 @@ Answer_delete:
     path: /api/answers/{id}
     controller: App\Controller\AnswerController::delete
     methods: DELETE
-
 
 login:
     path: /login

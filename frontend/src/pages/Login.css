@@ -42,7 +42,7 @@
 text-align: center;
     margin-top:1vh;
 }
-input[type=password]{
+input[type=password],input[type="text"]{
     width:36vw;
     height:4vh;
     margin-left: 2vw;
@@ -85,7 +85,11 @@ input[type=file]{
     display: flex;
     flex-direction: row;
 }
-
+.text-danger
+{
+    font-size: 6px;
+    margin: 0;
+}
 .go-back-button a {
     display: block;
     padding: 2vh;
