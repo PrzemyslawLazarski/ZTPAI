@@ -18,7 +18,7 @@
     background: #fff;
     border-radius: 0.3vw;
     transform: translate(-50%, -50%) scale(0.9);
-    transition: all 0.3s ease;
+   
 }
 
 .quiz_box header{
@@ -231,7 +231,7 @@ footer button.show{
     outline: none;
     border-radius: 5px;
     border: 1px solid #FCC822;
-    transition: all 0.3s ease;
+    
     color:#FCC822;
     background: #fff;
     box-shadow: 0 0.1vw 2.5vh -0.2vw #FBE18F;
