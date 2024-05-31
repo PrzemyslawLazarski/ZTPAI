@@ -7,12 +7,12 @@
     font-family: 'Poppins';
 }
 
-.quiz_box, .result_box{
+.quiz_box, .result_box, .next_btn{
     font-family: 'Poppins';
     font-size:30px;
 }
 
-.quiz_box{
+.quiz_box,.result_box{
    
     width: 80vw;
     background: #fff;
@@ -24,7 +24,7 @@
 .quiz_box header{
     position: relative;
     z-index: 2;
-    height: 5vh;
+    height: 10vh;
     background: #fff;
     border-radius: 0.3vw 0.3vw 0 0;
     display: flex;
@@ -45,8 +45,9 @@
 }
 
 .quiz_box header .title{
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 400;
+    
 
 }
 section{
@@ -72,11 +73,13 @@ section .option_list .option{
     padding: 0.6vw 0.6vw;
     font-size: 3.1em;
     margin-bottom: 0.8vw;
+    margin-left:20px;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width:75vw;
 
 }
 section .option_list .option:last-child{
@@ -166,8 +169,8 @@ footer button{
     box-shadow: 0 0.1vw 2.5vh -0.2vw #FBE18F;
     border: 1px solid #FCC822;
     line-height: 10px;
-    opacity: 0;
-    pointer-events: none;
+    
+   
     transform: scale(0.95);
     transition: all 0.3s ease;
 }
@@ -177,7 +180,10 @@ footer button:hover{
     color: white;
     box-shadow: 0px 0.1vw 2.5vh -0.2vw #FBE18F;
 }
-
+.quiz_box header
+{
+    margin-bottom:1vh;
+}
 footer button.show{
     opacity: 1;
     pointer-events: auto;
@@ -242,4 +248,42 @@ footer button.show{
     background: linear-gradient(95deg, #FCC822 0%, #FFCD2E 100%);
     color: white;
     box-shadow: 0px 0.1vw 2.5vh -0.2vw #FBE18F;
+}
+
+.option {
+    cursor: pointer;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.option.correct {
+    background-color: green;
+    color: white;
+}
+
+.option.incorrect {
+    background-color: red;
+    color: white;
+}
+
+.option:disabled {
+    cursor: not-allowed;
+}
+
+.next_btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #ffffff;
+   width:15vw;
+   height:6vh;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.next_btn:disabled {
+    background-color: #FCC822;
+    cursor: not-allowed;
 }

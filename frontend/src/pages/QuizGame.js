@@ -9,6 +9,9 @@ function QuizGame() {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [userScore, setUserScore] = useState(0);
     const [quizFinished, setQuizFinished] = useState(false);
+    const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
+    const [showNextButton, setShowNextButton] = useState(false);
+    const [correctAnswerIndex, setCorrectAnswerIndex] = useState(null);
 
     useEffect(() => {
         const fetchQuestions = async () => {
@@ -23,10 +26,19 @@ function QuizGame() {
         fetchQuestions();
     }, [id]);
 
-    const handleOptionClick = (isCorrect) => {
+    const handleOptionClick = (isCorrect, index) => {
+        setSelectedAnswerIndex(index);
+        setCorrectAnswerIndex(questions[currentQuestionIndex].answers.findIndex(answer => answer.is_correct));
         if (isCorrect) {
             setUserScore(userScore + 1);
         }
+        setShowNextButton(true);
+    };
+
+    const handleNextQuestion = () => {
+        setSelectedAnswerIndex(null);
+        setShowNextButton(false);
+        setCorrectAnswerIndex(null);
 
         if (currentQuestionIndex < questions.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -35,10 +47,17 @@ function QuizGame() {
         }
     };
 
+    const handleCompleteQuiz = () => {
+        setQuizFinished(true);
+    };
+
     const handleRestart = () => {
         setUserScore(0);
         setCurrentQuestionIndex(0);
         setQuizFinished(false);
+        setSelectedAnswerIndex(null);
+        setShowNextButton(false);
+        setCorrectAnswerIndex(null);
     };
 
     if (quizFinished) {
@@ -71,8 +90,15 @@ function QuizGame() {
                     {currentQuestion.answers.map((answer, index) => (
                         <div
                             key={index}
-                            className="option"
-                            onClick={() => handleOptionClick(answer.is_correct)}
+                            className={`option ${
+                                selectedAnswerIndex === index
+                                    ? answer.is_correct
+                                        ? 'correct'
+                                        : 'incorrect'
+                                    : ''
+                            } ${correctAnswerIndex === index ? 'correct' : ''}`}
+                            onClick={() => handleOptionClick(answer.is_correct, index)}
+                            style={{ pointerEvents: selectedAnswerIndex !== null ? 'none' : 'auto' }}
                         >
                             {answer.answer_text}
                         </div>
@@ -83,13 +109,17 @@ function QuizGame() {
                 <div className="total_que">
                     Question {currentQuestionIndex + 1} out of {questions.length}
                 </div>
-                <button
-                    className="next_btn"
-                    onClick={() => setCurrentQuestionIndex(currentQuestionIndex + 1)}
-                    disabled={currentQuestionIndex >= questions.length - 1}
-                >
-                    Next
-                </button>
+                {showNextButton && (
+                    currentQuestionIndex < questions.length - 1 ? (
+                        <button className="next_btn" onClick={handleNextQuestion}>
+                            Next
+                        </button>
+                    ) : (
+                        <button className="next_btn" onClick={handleCompleteQuiz}>
+                            Complete Quiz
+                        </button>
+                    )
+                )}
             </footer>
         </div>
     );
