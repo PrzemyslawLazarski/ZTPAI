@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Role;
 class RegisterController extends AbstractController
 {
-    #[Route('/api/register', name: 'register', methods: ['POST'])]
+    #[Route('/register', name: 'register', methods: ['POST'])]
     public function register(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): JsonResponse
     {
         $data = json_decode($request->getContent(), true);
