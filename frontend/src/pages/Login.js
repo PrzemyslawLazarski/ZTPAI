@@ -68,15 +68,7 @@ function Login() {
               <Link to="/register" className="sign-up-button">Sign up</Link>
             </div>
           </form>
-          <div className="alt-login">
-            <div className="or-login-with">Or login with</div>
-            <div className="facebook">
-              <a href="#">Facebook</a>
-            </div>
-            <div className="google">
-              <a href="#">Google</a>
-            </div>
-          </div>
+          
         </div>
       </div>
       <div className="login-right">

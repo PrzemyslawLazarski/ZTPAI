@@ -42,9 +42,9 @@
 text-align: center;
     margin-top:1vh;
 }
-input[type=password],input[type="text"]{
+.register input[type=password],input[type="text"],.login input[type=password],input[type="text"] {
     width:36vw;
-    height:4vh;
+    height:7vh;
     margin-left: 2vw;
     font-size: 1vw;
     padding-left: 1vw;
@@ -87,14 +87,16 @@ input[type=file]{
 }
 .text-danger
 {
-    font-size: 6px;
-    margin: 0;
+    font-size: 17px;
+    margin-left: 40px;
+    color:red;
 }
 .go-back-button a {
     display: block;
     padding: 2vh;
     font-size: 2vh;
-    width:5vw;
+    width:6vw;
+    height: 7vh;
     text-align: center;
     background-color: #ffffff;
     color: #FCC822;
@@ -102,6 +104,12 @@ input[type=file]{
     border:0.1vw solid #FCC822;
     margin-right: 5vw;
 
+}
+.go-back-button a:hover,.sign-up-button:hover {
+    background: linear-gradient(95deg, #FCC822 0%, #FFCD2E 100%);
+    color: white;
+    box-shadow: 0px 0.1vw 2.5vh -0.2vw #FBE18F;
+    transition: all 0.3s ease;
 }
 input[type=checkbox]
 {
@@ -152,8 +160,17 @@ label
     background: linear-gradient(95deg, #FCC822 0%, #FFCD2E 100%);
     box-shadow: 0px 10.45024px 23.22276px -6.96683px #FBE18F;
     width:7.5vw;
+    height:7vh;
     cursor: pointer;
 
+}
+.login-button:hover
+{
+    background: linear-gradient(95deg, white 0%, white 100%);
+    color: #FCC822;
+    box-shadow: 0px 0.1vw 2.5vh -0.2vw #FBE18F;
+    transition: all 0.3s ease;
+    border: 0.581px solid #FCC822;
 }
 
 .sign-up-button
@@ -173,53 +190,13 @@ label
     background: #FFF;
     box-shadow: 0px 10.45024px 23.22276px -6.96683px #FBE18F;
     cursor: pointer;
-    width:4.5vw;
+    width:7.5vw;
+    height:7vh;
     display: flex;
 
 }
 
-.or-login-with
-{
-    margin-top: 4vh;
-    margin-left: 2vw;
-    color: rgba(0, 0, 0, 0.61);
-    font-family: Roboto;
-    font-size: 0.8vw;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-.facebook
-{
-    margin-top: 4vh;
-    margin-left: 3.3vw;
-    font-family: Roboto;
-    font-size: 0.8vw;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
 
-}
-.facebook a
-{
-    text-decoration: none;
-    color: #FCC822;
-}
-.google
-{
-    margin-top: 4vh;
-    margin-left: 3.3vw;
-    font-family: Roboto;
-    font-size: 0.8vw;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-}
-.google a
-{
-    text-decoration: none;
-    color: #FCC822;
-}
 .wrapper
 {
     display: flex;

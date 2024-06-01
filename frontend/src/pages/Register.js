@@ -56,7 +56,7 @@ useEffect(() => {
             {errors.password && <span className='text-danger'>{errors.password} </span> }
             <input name="confirmedPassword"  onChange={handleInput} type="password" placeholder="confirm password" />
             {errors.confirmedPassword && <span className='text-danger'>{errors.confirmedPassword} </span> }
-            <div className="already-have"> Already have an account?<Link to="login">Login</Link></div>
+            <div className="already-have"> Already have an account?<Link to="/login">Login</Link></div>
             <button type="submit" name='sign-up-button' id="sign-up-button">Sign up</button>
           </form>
         </div>
