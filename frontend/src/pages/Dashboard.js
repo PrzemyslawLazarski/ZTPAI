@@ -25,7 +25,7 @@ function Dashboard() {
                 <div className="board">
                     Home
                     <div className="separator"></div>
-                    {/* 3. Wyświetlenie komunikatu powitalnego z nazwą użytkownika */}
+                    
                     <div className="hello-message">
                         {userName ? `Hello, ${userName}` : 'Hello'}
                     </div>

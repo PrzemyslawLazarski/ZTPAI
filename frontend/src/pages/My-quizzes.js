@@ -55,11 +55,11 @@ function MyQuizzes() {
           </header>
           <section className="projects">
             {filteredQuizzes.map((quiz) => (
-              <div key={quiz.id}>
+              <div key={quiz.id} className="quiz-card">
                 <h3>{quiz.title}</h3>
                 <p>{quiz.description}</p>
                 {quiz.image && <img src={`/img/${quiz.image}`} alt="Quiz" />}
-                <div>
+                <div className='play-bar'>
                   <Link to={`/quiz/${quiz.id}`}>PLAY</Link>
                   <Link to={`/quiz/${quiz.id}/info`}>INFO</Link>
                 </div>

@@ -11,11 +11,11 @@ function NavBar() {
                 <Link to="/dashboard"><img src="/img/logowhite.svg" alt="Logoo" /></Link>
             </div>
             <div className="links">
-                <Link to="/dashboard"><FontAwesomeIcon icon={faHome} /> Home</Link><br /><br />
-                <Link to="/my-quizzes"><FontAwesomeIcon icon={faPuzzlePiece} /> My Quizzes</Link><br /><br />
-                <Link to="/discover"><FontAwesomeIcon icon={faCompass} /> Discover</Link><br /><br />
-                <Link to="/profile"><FontAwesomeIcon icon={faUserShield} /> Profile</Link><br /><br /> 
-                <Link className="logout-button" to="/"><FontAwesomeIcon icon={faSignOutAlt} /> Log Out</Link>
+                <Link to="/dashboard"><FontAwesomeIcon icon={faHome} /><div className='home-nav'>Home</div> </Link><br /><br />
+                <Link to="/my-quizzes"><FontAwesomeIcon icon={faPuzzlePiece} /> <div className='quizzes-nav'>My Quizzes</div></Link><br /><br />
+                <Link to="/discover"><FontAwesomeIcon icon={faCompass} /> <div className='discover-nav'>Discover</div></Link><br /><br />
+                <Link to="/profile"><FontAwesomeIcon icon={faUserShield} /> <div className='profile-nav'>Profile</div></Link><br /><br /> 
+                <Link to="/login"><FontAwesomeIcon icon={faSignOutAlt} /> <div className='logout-nav'>Log out</div></Link>
             </div>
         </div>
     );

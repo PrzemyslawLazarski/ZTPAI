@@ -420,3 +420,179 @@ textarea{
     margin-top:15px;
     font-size:25px;
 }
+.search-bar {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 1000;
+    width: 100%;
+    
+   
+}
+@media only screen and (max-device-width: 1020px) {
+
+
+.dashboard-logo,.home-nav,.quizzes-nav, .discover-nav,.profile-nav,.logout-nav{
+    display: none;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.right {
+    flex: 1;
+    padding-bottom: 60px; /* Zapas na dolny pasek nawigacyjny */
+}
+
+.board {
+    margin: 20px;
+}
+.menu {
+    
+    margin-top:90vh;
+    position: fixed;
+    height: 10vh;
+   width:100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size:10px;
+}
+
+.dashboard-logo {
+    display: none;
+}
+
+.links {
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.svg-inline--fa
+{
+    font-size: 6vh;
+    margin:2vh;
+}
+.board
+{
+    font-size: 8vh;
+}
+.Add
+{
+    padding:1.7vh;
+    width:25vw;
+    
+}
+.projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.projects div ,.quiz-card {
+    
+    width:80vw;
+    height:52vh;
+    padding: 10px;
+    border-radius: 10px;
+    
+    
+}
+.projects h3
+{
+    margin-top:0px;
+}
+.projects div a {
+    margin:2px;
+}
+.projects div img,.quiz-card img {
+    
+    height: 28vh;
+    width:74vw;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.play-bar{
+    height:5vh;
+    margin-left:10vw;
+    background-color: #f5f5f5;
+    
+}
+.quiz-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.projects div
+{
+    box-shadow: none;
+}
+.search-bar {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 1000;
+    width: 100%;
+    
+   
+}
+
+.template-header{
+    display: none;
+}
+.header
+{
+    font-size:4vh;
+}
+.project-form
+{
+    width:80vw;
+}
+.quiz
+{
+    width:70vw;
+}
+.quiz-header{
+    margin-left:5vw;
+}
+.quiz {
+    flex-direction: column; /* Ustawienie kontenerów jeden pod drugim */
+}
+
+.template-container, #questions-container {
+    width: 100%;
+}
+
+.question-container, .answer-container, .checkbox-container {
+    width: 100%;
+}
+
+.project-form input[type="text"], .project-form textarea, .project-form input[type="file"],#questions-container input[type="text"]
+{
+    width:70vw;
+    margin-left:0;
+    font-size:2.5vh;
+}
+
+#questions-container input[type="radio"]
+{
+    margin-left:5vw;
+    margin-top:2.7vh;
+}
+.form-buttons{
+    display:flex;
+    
+    margin-bottom: 10vh;;
+}
+.project-form button
+{
+    margin-top:10px;
+    width:25vw;
+    height:9vh;
+}
+}
