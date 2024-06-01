@@ -39,7 +39,7 @@ class QuestionController extends AbstractController
     {
         $data = json_decode($request->getContent(), true);
         $question = new Question();
-        $question->setQuizId($data['quiz_id']);
+
         $question->setQuestionText($data['question_text']);
         // Set other properties...
 
@@ -53,7 +53,7 @@ class QuestionController extends AbstractController
     public function update(Question $question, Request $request): JsonResponse
     {
         $data = json_decode($request->getContent(), true);
-        $question->setQuizId($data['quiz_id']);
+
         $question->setQuestionText($data['question_text']);
         // Update other properties...
 

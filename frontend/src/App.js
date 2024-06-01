@@ -11,7 +11,8 @@ import MyQuizzes from './pages/My-quizzes';
 import Discover from './pages/Discover';
 import AddQuiz from './pages/AddQuiz';
 import QuizGame from './pages/QuizGame';
-import QuizDetails from './pages/QuizDetails'; // Importuj QuizDetails
+import Profile from './pages/Profile';
+import QuizInfo from './pages/QuizInfo'; // Importuj QuizDetails
 
 function App() {
   return (
@@ -26,9 +27,10 @@ function App() {
         <Route path="/my-quizzes" element={<MyQuizzes />} />
         <Route path="/discover" element={<Discover />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/addquiz" element={<AddQuiz />} />
         <Route path="/quiz/:id" element={<QuizGame />} />
-        <Route path="/quiz/:id/info" element={<QuizDetails />} /> {/* Nowa ścieżka dla QuizDetails */}
+        <Route path="/quiz/:id/info" element={<QuizInfo />} />
       </Routes>
     </Router>
   );
