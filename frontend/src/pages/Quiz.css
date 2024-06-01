@@ -287,3 +287,8 @@ footer button.show{
     background-color: #FCC822;
     cursor: not-allowed;
 }
+.hello-message img{
+    width:30vw;
+    height:60vh;
+
+}

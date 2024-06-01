@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import NavBar from './NavBar';
 
-function QuizDetails() {
+function QuizInfo() {
   const { id } = useParams();
   const [quiz, setQuiz] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -47,23 +47,19 @@ function QuizDetails() {
       <NavBar />
       <div className="right">
         <div className="board">
-          QuizDetails
+        {quiz.title}
           <div className="separator"></div>
             <div className="hello-message">
-              <h1>{quiz.title}</h1>
+              
               <p>{quiz.description}</p>
               {quiz.image && <img src={`/img/${quiz.image}`} alt="Quiz" />}
-              <div>
-              {quiz.questions.map((question, questionIndex) => (
-                <div key={questionIndex}>
-                  <h3>{question.text}</h3>
-                  <ul>
-                    {question.answers && question.answers.map((answer, answerIndex) => (
-                      <li key={answerIndex}>{answer.text}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+                <div>
+                {quiz.questions.map((question, questionIndex) => (
+                 <div key={questionIndex}>
+                <h3>Pytanie {questionIndex +1}</h3>{question.question_text}
+                
+               </div>
+))}
             </div>
             </div>
           <div className="session">
@@ -75,4 +71,4 @@ function QuizDetails() {
   );
 }
 
-export default QuizDetails;
+export default QuizInfo;

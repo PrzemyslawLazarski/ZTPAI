@@ -6,7 +6,7 @@ function NavBar(){
 
     <div className="menu">
         <div className="dashboard-logo">
-            <Link to="/dashboard"><img src="img/logowhite.svg" alt="Logoo" /></Link>
+            <Link to="/dashboard"><img src="/img/logowhite.svg" alt="Logoo" /></Link>
         </div>
         <div className="links">
             <Link to="/dashboard"><i className="fas fa-home"></i> Home</Link><br /><br />

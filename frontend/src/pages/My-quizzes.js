@@ -59,7 +59,10 @@ function MyQuizzes() {
                 <h3>{quiz.title}</h3>
                 <p>{quiz.description}</p>
                 {quiz.image && <img src={`/img/${quiz.image}`} alt="Quiz" />}
-                <Link to={`/quiz/${quiz.id}`}>PLAY</Link>
+                <div>
+                  <Link to={`/quiz/${quiz.id}`}>PLAY</Link>
+                  <Link to={`/quiz/${quiz.id}/info`}>INFO</Link>
+                </div>
               </div>
             ))}
           </section>
