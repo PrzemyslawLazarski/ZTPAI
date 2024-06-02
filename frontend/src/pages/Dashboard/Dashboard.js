@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Dashboard.css'; 
 import NavBar from './NavBar'; 
 
@@ -23,12 +24,15 @@ function Dashboard() {
                 <div className="board">
                     Home
                     <div className="separator"></div>
-                    
-                    <div className="hello-message">
-                        {userName ? `Hello, ${userName}` : 'Hello'}
-                    </div>
-                    <div className="session">
-                      
+                    <div className="welcome-page">
+                        <div className="hello-message">
+                            {userName ? `Hello, ${userName}!` : 'Hello'}
+                            <p>Let's explore together the world of quizzes</p>
+                        </div>
+                        <div className="banner">
+                            <img src="/img/small-logo.png" alt="Logoo" />
+                            
+                        </div>
                     </div>
                 </div>
             </div>

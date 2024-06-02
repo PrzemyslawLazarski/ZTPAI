@@ -8,7 +8,6 @@ import AboutUs from './pages/Home/Aboutus';
 import Features from './pages/Home/Features';
 import Dashboard from './pages/Dashboard/Dashboard';
 import MyQuizzes from './pages/Dashboard/My-quizzes';
-import Discover from './pages/Dashboard/Discover';
 import AddQuiz from './pages/Quiz/AddQuiz';
 import QuizGame from './pages/Quiz/QuizGame';
 import Profile from './pages/Dashboard/Profile';
@@ -26,7 +25,6 @@ function App() {
         <Route path="/features" element={<Features />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/my-quizzes" element={<MyQuizzes />} />
-        <Route path="/discover" element={<Discover />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/adminpanel" element={<AdminPanel />} />

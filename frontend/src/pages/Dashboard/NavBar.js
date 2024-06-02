@@ -30,7 +30,6 @@ function NavBar() {
             <div className="links">
                 <Link to="/dashboard"><FontAwesomeIcon icon={faHome} /><div className='home-nav'>Home</div> </Link>
                 <Link to="/my-quizzes"><FontAwesomeIcon icon={faPuzzlePiece} /> <div className='quizzes-nav'>My Quizzes</div></Link>
-                <Link to="/discover"><FontAwesomeIcon icon={faCompass} /> <div className='discover-nav'>Discover</div></Link>
                 <Link to="/profile"><FontAwesomeIcon icon={faUserShield} /> <div className='profile-nav'>Profile</div></Link>
                 {userRole === 'admin' && (
                     <Link to="/adminpanel"><FontAwesomeIcon icon={faCog} /> <div className='admin-nav'>Admin Panel</div></Link>
