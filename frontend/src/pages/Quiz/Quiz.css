@@ -225,12 +225,15 @@ footer button.show{
     display: flex;
     margin: 2vh 0;
 }
-
+.quizinfo img{
+    width:30vw;
+    height:57vh;
+}
 .result_box .buttons button{
     margin: 0 1vw;
     height: 7vh;
     padding: 0 1.5vw;
-    font-size: 1em;
+    font-size: 0.8em;
     font-weight: 500;
     cursor: pointer;
     border: none;
@@ -278,7 +281,7 @@ footer button.show{
     border: none;
     background-color: #ffffff;
    width:15vw;
-   height:6vh;
+   height:7vh;
     cursor: pointer;
     border-radius: 4px;
 }
@@ -295,17 +298,28 @@ footer button.show{
 @media only screen and (max-device-width: 1020px) {
 .quiz_box header .title{
     font-size:7vw;
+   
     
+}
+.quiz_box header{
+    margin-left:8vw;
+    margin-bottom: 1vh;
+    box-shadow: none;
 }
 .quiz_box{
     top:40%;
     width:100vw;
     height:70vh;
+    box-shadow: none;
 }
 section .option_list .option{
     width:87vw;
     height:10vh;
     padding-left: 5vw;
+    
+}
+section .option_list{
+    margin-top:6vh;
 }
 .total_que{
     font-size: 6vw;
@@ -338,6 +352,10 @@ section .option_list .option{
     height:100vh;
    
     
+}
+.quizinfo img{
+    width:70vw;
+    height:40vh;
 }
 .result_box .buttons button {
     width:40vw;

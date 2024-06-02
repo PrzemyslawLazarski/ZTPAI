@@ -81,7 +81,7 @@ body{
 }
 .links
 {
-    margin-left:4vw;
+    margin-left:3vw;
     
 }
 
@@ -98,10 +98,11 @@ body{
     padding:2vw;
 }
 .quizinfo p {
-    font-size:2vw;
+    font-size:1.8vw;
 }
 .quizinfo h3{
-    font-size:3vw;
+    font-size:2.7vw;
+    margin-top: 2vh;
 }
 .quizinfo .question-info{
     font-size:2vw;
@@ -123,7 +124,7 @@ body{
     margin-left:1vw;
     display: block;
     padding: 2vh;
-    height: 8vh;
+    height: 9vh;
     width:10vw;
     text-align: center;
     background-color: #ffffff;
@@ -256,14 +257,17 @@ textarea {
 
     padding: 1vw;
 }
-
+.projects div .quiz-desc-title
+{
+    height:16vh;
+}
 .projects div,.discoverProjects div{
     background: #f5f5f5;
     border-radius: 10px;
     
     overflow: hidden;
-    width: 15vw;
-    height:50vh;
+    width: 20vw;
+    height:65vh;
    
 }
 .play-bar{
@@ -277,12 +281,12 @@ textarea {
 
 .projects div a ,.discoverProjects div a,.projects div .delete{
     display: inline-block;
-    font-size:1.8vh;
-    width:5vw;
-    height:5vh;
+    font-size:1.9vh;
+    width:6vw;
+    height:6vh;
     background: #FCC822;
     color: #fff;
-    padding: 10px 20px;
+    padding: 12px 25px;
     text-align: center;
     text-decoration: none;
     font-weight: bold;
@@ -296,7 +300,7 @@ textarea {
     background: #f1061d;
     cursor:pointer;
     border:0;
-    margin-left: 5vw;
+    margin-left: 7vw;
     font-size:1.8vh;
 }
 .projects div .delete:hover{
@@ -468,7 +472,8 @@ textarea {
 .checkbox-container
 {
     width:20px;
-    margin-left:0;
+    margin-left:1vw;
+    margin-top:1.2vh;
 }
 .header
 {
@@ -496,7 +501,7 @@ textarea{
 @media only screen and (max-device-width: 1020px) {
 
 
-.dashboard-logo,.home-nav,.quizzes-nav, .discover-nav,.profile-nav,.logout-nav,.admin-nav,.hello-message p{
+.dashboard-logo,.home-nav,.quizzes-nav, .discover-nav,.profile-nav,.logout-nav,.admin-nav,.hello-message p,.banner img{
     display: none;
 }
 .container {
@@ -564,7 +569,7 @@ textarea{
 {
     padding:1.7vh;
     width:25vw;
-    
+    height:8vh;
 }
 .quizinfo{
     width:80vw;
@@ -585,7 +590,7 @@ textarea{
 .projects div ,.quiz-card {
     
     width:80vw;
-    height:57vh;
+    height:62vh;
     padding: 10px;
     border-radius: 10px;
     
@@ -596,6 +601,8 @@ textarea{
     margin-top:0px;
 }
 .projects div a,.projects div .delete{
+    padding:0;
+    padding-top: 1.4vh;
     margin:1px;
     margin-top:0;
     width:20vw;
@@ -606,6 +613,8 @@ textarea{
     margin-top:2vh;
     margin-left: 25vw;
     width:22vw;
+    height:7vh;
+    padding-top:0.3vh;
 }
 .projects div img,.quiz-card img {
     
@@ -701,12 +710,23 @@ textarea{
     height:40vh;
 }
 .quizinfo p{
-    font-size: 7vw;
+    font-size: 6vw;
 }
 .quizinfo h3{
     font-size: 8vw;
 }
 .quizinfo .question-info{
-    font-size: 7vw;
+    font-size: 5vw;
 }
+.projects div .quiz-desc-title{
+    height:14vh;
+    padding:0;
+}
+.projects p{
+   font-size:2vh;
+}
+header{
+    margin-bottom: 2vh;;
+}
+
 }

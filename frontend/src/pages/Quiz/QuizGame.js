@@ -131,7 +131,7 @@ function QuizGame() {
                         </button>
                     ) : (
                         <button className="next_btn" onClick={handleCompleteQuiz}>
-                            Complete Quiz
+                            Complete
                         </button>
                     )
                 )}

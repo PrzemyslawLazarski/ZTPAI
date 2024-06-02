@@ -56,8 +56,10 @@ function MyQuizzes() {
           <section className="projects">
             {filteredQuizzes.map((quiz) => (
               <div key={quiz.id} className="quiz-card">
+                <div className='quiz-desc-title'>
                 <h3>{quiz.title}</h3>
                 <p>{quiz.description}</p>
+                </div>
                 {quiz.image && <img src={`/img/${quiz.image}`} alt=""/>}
                 <div className='play-bar'>
                   <div className="quiz-button"><Link to={`/quiz/${quiz.id}`}>PLAY</Link></div>

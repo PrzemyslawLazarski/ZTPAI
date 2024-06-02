@@ -28,9 +28,7 @@ function Dashboard() {
                             {userName ? `Hello, ${userName}!` : 'Hello'}
                             <p>Let's explore together the world of quizzes</p>
                         </div>
-                        <div className="banner">
-                            <img src="/img/small-logo.png" alt="Logoo" />                           
-                        </div>
+                        
                         
                     </div>
                     
