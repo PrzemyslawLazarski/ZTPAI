@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios'; 
 import './Dashboard.css'; 
 import NavBar from './NavBar';
@@ -64,7 +63,7 @@ function AdminPanel() {
                     <h3>{quiz.title}</h3>
                     <p>{quiz.description}</p>
                     {quiz.image && <img src={`/img/${quiz.image}`} alt="Quiz" />}
-                    <button onClick={() => handleDeleteQuiz(quiz.id)}>DELETE</button>
+                    <button  className="delete" onClick={() => handleDeleteQuiz(quiz.id)}>DELETE</button>
                 </div>
             ))}
           </section>
