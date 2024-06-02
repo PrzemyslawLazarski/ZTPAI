@@ -11,7 +11,10 @@ body{
     height:100%;
     
 }
-
+.svg-inline--fa{
+    margin-top:0.7vh;
+    margin-right: 0.8vw;;
+}
 .container {
     margin: 0;
     padding: 0;
@@ -44,6 +47,8 @@ body{
     text-decoration: none;
     color: black;
     font-size: 1.7em;
+    display:flex;
+    flex-direction: row;
 
 }
 .logout-button
@@ -420,15 +425,7 @@ textarea{
     margin-top:15px;
     font-size:25px;
 }
-.search-bar {
-    position: sticky;
-    top: 0;
-    background: #fff;
-    z-index: 1000;
-    width: 100%;
-    
-   
-}
+
 @media only screen and (max-device-width: 1020px) {
 
 
@@ -496,7 +493,7 @@ textarea{
 .projects div ,.quiz-card {
     
     width:80vw;
-    height:52vh;
+    height:57vh;
     padding: 10px;
     border-radius: 10px;
     
@@ -511,7 +508,7 @@ textarea{
 }
 .projects div img,.quiz-card img {
     
-    height: 28vh;
+    height: 34vh;
     width:74vw;
     border-radius: 5px;
     margin-top: 10px;
@@ -586,7 +583,7 @@ textarea{
 }
 .form-buttons{
     display:flex;
-    
+
     margin-bottom: 10vh;;
 }
 .project-form button

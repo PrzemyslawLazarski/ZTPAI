@@ -30,6 +30,7 @@ class LoginController extends AbstractController
             'id' => $user->getId(),
             'nickname' => $user->getNickname(),
             'email' => $user->getEmail(),
+           
         ]], Response::HTTP_OK);
     }
 }
