@@ -103,27 +103,6 @@ class User implements PasswordAuthenticatedUserInterface, UserInterface
         return $this->quizzes;
     }
 
-    public function addQuiz(Quiz $quiz): static
-    {
-        if (!$this->quizzes->contains($quiz)) {
-            $this->quizzes->add($quiz);
-            $quiz->setCreatedBy($this);
-        }
-
-        return $this;
-    }
-
-    public function removeQuiz(Quiz $quiz): static
-    {
-        if ($this->quizzes->removeElement($quiz)) {
-            // set the owning side to null (unless already changed)
-            if ($quiz->getCreatedBy() === $this) {
-                $quiz->setCreatedBy(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getRole(): ?Role
     {

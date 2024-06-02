@@ -7,6 +7,7 @@ function Profile() {
     const [userName, setUserName] = useState('');
     const [userEmail, setUserEmail] = useState(''); 
     const [userId, setUserId] = useState(''); 
+    const [userRole, setUserRole] = useState(''); 
 
     useEffect(() => {
         document.title = 'Profile';
@@ -17,6 +18,7 @@ function Profile() {
             setUserName(user.nickname);
             setUserEmail(user.email);
             setUserId(user.id);
+            setUserRole(user.role);
         }
     }, []);
 
@@ -32,7 +34,9 @@ function Profile() {
                             <div className='UserData'>
                                 <div className="User-nickname"> Nick: {userName}</div>
                                 <div className="User-email"> Email: {userEmail}</div>
+                                <div className="User-role"> Your Role: {userRole}</div>
                                 <div className="User-id"> Your ID: {userId}</div>
+                               
                             </div>
                         }
                     </div>

@@ -12,7 +12,8 @@ import Discover from './pages/Discover';
 import AddQuiz from './pages/AddQuiz';
 import QuizGame from './pages/QuizGame';
 import Profile from './pages/Profile';
-import QuizInfo from './pages/QuizInfo'; // Importuj QuizDetails
+import QuizInfo from './pages/QuizInfo'; 
+import AdminPanel from './pages/AdminPanel'; 
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/discover" element={<Discover />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/adminpanel" element={<AdminPanel />} />
         <Route path="/addquiz" element={<AddQuiz />} />
         <Route path="/quiz/:id" element={<QuizGame />} />
         <Route path="/quiz/:id/info" element={<QuizInfo />} />
