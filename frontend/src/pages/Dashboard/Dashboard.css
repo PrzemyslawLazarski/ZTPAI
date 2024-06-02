@@ -40,7 +40,7 @@ body{
     text-align: left;
 }
 
-.menu a{
+.menu a,.menu button{
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -49,20 +49,27 @@ body{
     font-size: 1.7em;
     display:flex;
     flex-direction: row;
+    margin-top: 4vh;
 
+}
+.menu button{
+    background-color:#FCC822 ;
+    border:0;
 }
 .logout-button
 {
     margin-top: 30vh;
 }
-.menu a:hover{
+.menu a:hover,.menu button:hover{
 
     color: #ECECE8;
+    cursor:pointer;
 
 }
 .links
 {
     margin-left:4vw;
+    
 }
 
 .board
