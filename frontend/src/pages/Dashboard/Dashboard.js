@@ -31,7 +31,9 @@ function Dashboard() {
                         <div className="banner">
                             <img src="/img/small-logo.png" alt="Logoo" />                           
                         </div>
+                        
                     </div>
+                    
                 </div>
             </div>
         </div>

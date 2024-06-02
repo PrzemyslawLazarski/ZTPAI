@@ -292,3 +292,56 @@ footer button.show{
     height:60vh;
 
 }
+@media only screen and (max-device-width: 1020px) {
+.quiz_box header .title{
+    font-size:7vw;
+    
+}
+.quiz_box{
+    top:40%;
+    width:100vw;
+    height:70vh;
+}
+section .option_list .option{
+    width:87vw;
+    height:10vh;
+    padding-left: 5vw;
+}
+.total_que{
+    font-size: 6vw;
+    
+    margin-top:3vh;
+}
+.quiz_box footer{
+    display: flex;
+    flex-direction: column;
+    height:20vh;
+}
+.quiz_box footer .next_btn{
+    margin-left:0vw;
+    margin-top: 10vh;
+    padding:1vw;
+    width:60vw;
+    height:60px;
+    border: 1px solid #FCC822;
+    
+    border-radius: 4px;
+    font-size:6vw;
+}
+.quiz_box footer button{
+    width:10vw;
+    height:40vh;
+}
+.result_box{
+    font-size: 4vw;
+    width:100vw;
+    height:100vh;
+   
+    
+}
+.result_box .buttons button {
+    width:40vw;
+    height:14vh;
+    font-size: 5.2vw;
+}
+}

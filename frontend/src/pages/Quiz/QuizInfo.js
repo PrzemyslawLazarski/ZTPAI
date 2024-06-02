@@ -49,16 +49,20 @@ function QuizInfo() {
         <div className="board">
         {quiz.title}
           <div className="separator"></div>
-            <div className="hello-message">   
+            <div className="hello-message">
+             
+            </div>
+            <div className="quizinfo">  
               <p>{quiz.description}</p>
               {quiz.image && <img src={`/img/${quiz.image}`} alt="Quiz" />}
                 <div>
                 {quiz.questions.map((question, questionIndex) => (
                  <div key={questionIndex}>
-                <h3>Pytanie {questionIndex +1}</h3>{question.question_text}               
+                <h3>Pytanie {questionIndex +1}</h3><div className='question-info'>{question.question_text}    </div>           
                </div>
+               
 ))}
-            </div>
+            </div> 
             </div>
         </div>
       </div>

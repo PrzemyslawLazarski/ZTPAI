@@ -97,7 +97,15 @@ body{
     line-height: normal;
     padding:2vw;
 }
-
+.quizinfo p {
+    font-size:2vw;
+}
+.quizinfo h3{
+    font-size:3vw;
+}
+.quizinfo .question-info{
+    font-size:2vw;
+}
 .separator 
 {
     height: 0.1vh;
@@ -252,12 +260,15 @@ textarea {
 .projects div,.discoverProjects div{
     background: #f5f5f5;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
     overflow: hidden;
     width: 15vw;
     height:50vh;
+   
 }
-
+.play-bar{
+    display: flex;
+}
 .projects div img ,.discoverProjects div img{
     width: 100%;
     height: 60%;
@@ -485,7 +496,7 @@ textarea{
 @media only screen and (max-device-width: 1020px) {
 
 
-.dashboard-logo,.home-nav,.quizzes-nav, .discover-nav,.profile-nav,.logout-nav{
+.dashboard-logo,.home-nav,.quizzes-nav, .discover-nav,.profile-nav,.logout-nav,.admin-nav,.hello-message p{
     display: none;
 }
 .container {
@@ -493,14 +504,30 @@ textarea{
     flex-direction: column;
     height: 100vh;
 }
-
+.banner img {
+    margin-top:3vh;
+    margin-left: 5vw;
+}
+.hello-message{
+    width:45vw;
+}
+.hello-message p{
+    margin-top:10vh;
+    margin-left: 10vw;
+}
+.quiz-button{
+    width:20vw;
+}
+.welcome-page{
+    margin-top:5vh;
+}
 .right {
     flex: 1;
     padding-bottom: 60px; /* Zapas na dolny pasek nawigacyjny */
 }
 
 .board {
-    margin: 20px;
+    margin: 10px;
 }
 .menu {
     
@@ -531,13 +558,22 @@ textarea{
 }
 .board
 {
-    font-size: 8vh;
+    font-size: 7vh;
 }
 .Add
 {
     padding:1.7vh;
     width:25vw;
     
+}
+.quizinfo{
+    width:80vw;
+}
+.User-nickname,.User-email,.User-id,.User-role{
+    font-size: 5vh;
+}
+.user-info{
+    font-size: 3.5vh;
 }
 .projects {
     display: flex;
@@ -559,8 +595,17 @@ textarea{
 {
     margin-top:0px;
 }
-.projects div a {
-    margin:2px;
+.projects div a,.projects div .delete{
+    margin:1px;
+    margin-top:0;
+    width:20vw;
+    height:5.8vh;
+    display: inline-block;
+}
+.projects div .delete{
+    margin-top:2vh;
+    margin-left: 25vw;
+    width:22vw;
 }
 .projects div img,.quiz-card img {
     
@@ -571,7 +616,7 @@ textarea{
 }
 .play-bar{
     height:5vh;
-    margin-left:10vw;
+    display: flex;
     background-color: #f5f5f5;
     
 }
@@ -650,5 +695,18 @@ textarea{
     margin-top:10px;
     width:25vw;
     height:9vh;
+}
+.quizinfo img{
+    width:70vw;
+    height:40vh;
+}
+.quizinfo p{
+    font-size: 7vw;
+}
+.quizinfo h3{
+    font-size: 8vw;
+}
+.quizinfo .question-info{
+    font-size: 7vw;
 }
 }

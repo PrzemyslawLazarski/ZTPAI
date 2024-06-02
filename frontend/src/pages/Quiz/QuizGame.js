@@ -123,6 +123,7 @@ function QuizGame() {
                 <div className="total_que">
                     Question {currentQuestionIndex + 1} out of {questions.length}
                 </div>
+                <div className='next-button-quiz'> 
                 {showNextButton && (
                     currentQuestionIndex < questions.length - 1 ? (
                         <button className="next_btn" onClick={handleNextQuestion}>
@@ -134,6 +135,7 @@ function QuizGame() {
                         </button>
                     )
                 )}
+                </div>
             </footer>
         </div>
     );

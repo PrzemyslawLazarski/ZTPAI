@@ -60,8 +60,8 @@ function MyQuizzes() {
                 <p>{quiz.description}</p>
                 {quiz.image && <img src={`/img/${quiz.image}`} alt=""/>}
                 <div className='play-bar'>
-                  <Link to={`/quiz/${quiz.id}`}>PLAY</Link>
-                  <Link to={`/quiz/${quiz.id}/info`}>INFO</Link>
+                  <div className="quiz-button"><Link to={`/quiz/${quiz.id}`}>PLAY</Link></div>
+                  <div className="quiz-button"><Link to={`/quiz/${quiz.id}/info`}>INFO</Link></div>
                 </div>
               </div>
             ))}
