@@ -140,5 +140,4 @@ function QuizGame() {
         </div>
     );
 }
-
 export default QuizGame;
