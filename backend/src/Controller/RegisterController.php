@@ -1,6 +1,5 @@
 <?php
 
-// src/Controller/RegisterController.php
 namespace App\Controller;
 
 use App\Entity\User;
@@ -22,19 +21,15 @@ class RegisterController extends AbstractController
         $email = $data['email'];
         $password = $data['password'];
 
-        // Check if user with the same email already exists
         $existingUser = $entityManager->getRepository(User::class)->findOneBy(['email' => $email]);
         if ($existingUser) {
             return new JsonResponse(['success' => false, 'message' => 'Email already in use'], Response::HTTP_CONFLICT);
         }
 
-        // Create new User entity
         $user = new User($entityManager);
 
         $user->setNickname($nickname);
         $user->setEmail($email);
-
-        // Hash the password and set it to the user entity
         $hashedPassword = $passwordHasher->hashPassword($user, $password);
         $user->setPassword($hashedPassword);
         $role = $entityManager->getRepository(Role::class)->findOneBy(['id' => 0]);

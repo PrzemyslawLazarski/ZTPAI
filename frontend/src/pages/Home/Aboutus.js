@@ -34,8 +34,6 @@ useEffect(() => {
             Join our quiz community and let's discover the world of knowledge together in a fun
             and interactive way!
             </p>
-            
-            
           </div>
           <div className="home-start-bar">
             <div className="home-start-button">
@@ -43,11 +41,11 @@ useEffect(() => {
             </div>
           </div>
           <div className="home-smaller-image">
-            <img src="img/smaller-lines.svg" alt="Large Image" />
+            <img src="img/smaller-lines.svg"  alt=""/>
           </div>
         </div>
         <div className="home-image">
-          <img src="img/people1.svg" alt="Large Image" />
+          <img src="img/people1.svg" alt=""/>
         </div>
       </div>
     </div>

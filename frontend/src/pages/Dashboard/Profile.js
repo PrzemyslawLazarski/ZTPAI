@@ -29,13 +29,12 @@ function Profile() {
                 <div className="board">
                     Profile
                     <div className="separator"></div>
-
-                            <div className='UserData'>
-                                <div className="user-info">  <div className="User-nickname"> Nick: </div>{userName}</div>
-                                <div className="user-info">  <div className="User-email"> Email: </div>{userEmail}</div>
-                                <div className="user-info"> <div className="User-role"> Your Role: </div>{userRole}</div>
-                                <div className="user-info"> <div className="User-id"> Your ID: </div>{userId}</div>
-                            </div>    
+                    <div className='UserData'>
+                        <div className="user-info">  <div className="User-nickname"> Nick: </div>{userName}</div>
+                        <div className="user-info">  <div className="User-email"> Email: </div>{userEmail}</div>
+                        <div className="user-info"> <div className="User-role"> Your Role: </div>{userRole}</div>
+                        <div className="user-info"> <div className="User-id"> Your ID: </div>{userId}</div>
+                    </div>    
                 </div>
             </div>
         </div>

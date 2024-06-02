@@ -47,12 +47,12 @@ useEffect(() => {
               <a href="login">Start solving</a>
             </div>
           </div>
-          <div className="home-smaller-image">
-            <img src="img/smaller-lines.svg" alt="Large Image" />
+          <div className="home-smaller-image ">
+            <img src="img/smaller-lines.svg" alt=""/>
           </div>
         </div>
         <div className="home-image">
-          <img src="img/people1.svg" alt="Large Image" />
+          <img src="img/people1.svg" alt=""/>
         </div>
       </div>
     </div>

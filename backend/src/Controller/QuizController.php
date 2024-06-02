@@ -87,17 +87,6 @@ class QuizController extends AbstractController
         return new JsonResponse(['message' => 'Quiz deleted successfully'], Response::HTTP_OK);
     }
 
-    /*
-     * #[Route('/{id}', name: 'delete', methods: ['DELETE'])]
-    public function delete(Question $question): Response
-    {
-        $this->entityManager->remove($question);
-        $this->entityManager->flush();
-
-        return new Response(null, Response::HTTP_NO_CONTENT);
-    }
-     *
-     */
     #[Route('/', name: 'create', methods: ['POST'])]
     public function create(Request $request): JsonResponse
     {

@@ -1,4 +1,3 @@
-
 import {Link} from 'react-router-dom';
 import './Home.css'; 
 
@@ -8,7 +7,7 @@ function MenuBar() {
         <div className="home-header">
             <div className="home-bar">
                 <div className="home-logo">
-                    <Link to="/"><img src="/img/logo.svg" alt="Logo"></img></Link>
+                    <Link to="/"><img src="/img/logo.svg" alt=""></img></Link>
                 </div>
                 <div className="home-bar-buttons">
                     <Link to="/how-it-works">How it works?</Link>

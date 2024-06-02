@@ -30,11 +30,11 @@ function Home() {
             </div>
           </div>
           <div className="home-smaller-image">
-            <img src="/img/smaller-lines.svg" alt="small" />
+            <img src="/img/smaller-lines.svg" alt=""/>
           </div>
         </div>
         <div className="home-image">
-          <img src="/img/people1.svg" alt="Large" />
+          <img src="/img/people1.svg" alt="" />
         </div>
       </div>
     </div>

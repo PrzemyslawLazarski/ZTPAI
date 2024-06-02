@@ -14,7 +14,7 @@ function QuizGame() {
     const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
     const [showNextButton, setShowNextButton] = useState(false);
     const [correctAnswerIndex, setCorrectAnswerIndex] = useState(null);
-    const [incorrectAnswerIndex, setIncorrectAnswerIndex] = useState(null); // Dodatkowy stan dla indeksu błędnej odpowiedzi
+    const [incorrectAnswerIndex, setIncorrectAnswerIndex] = useState(null); 
 
     useEffect(() => {
         const fetchQuestions = async () => {
@@ -33,7 +33,7 @@ function QuizGame() {
         setSelectedAnswerIndex(index);
         setCorrectAnswerIndex(questions[currentQuestionIndex].answers.findIndex(answer => answer.is_correct));
         if (!isCorrect) {
-            setIncorrectAnswerIndex(index); // Ustawiamy indeks błędnej odpowiedzi
+            setIncorrectAnswerIndex(index);
         }
         if (isCorrect) {
             setUserScore(userScore + 1);
@@ -45,7 +45,7 @@ function QuizGame() {
         setSelectedAnswerIndex(null);
         setShowNextButton(false);
         setCorrectAnswerIndex(null);
-        setIncorrectAnswerIndex(null); // Resetujemy indeks błędnej odpowiedzi
+        setIncorrectAnswerIndex(null);
 
         if (currentQuestionIndex < questions.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -109,7 +109,6 @@ function QuizGame() {
                             style={{ pointerEvents: selectedAnswerIndex !== null ? 'none' : 'auto' }}
                         >
                             {answer.answer_text}
-                            {/* Warunkowe renderowanie ikonki poprawności */}
                             {selectedAnswerIndex !== null && index === incorrectAnswerIndex && (
                                 <FontAwesomeIcon icon={faTimes} className="icon cross" />
                             )}

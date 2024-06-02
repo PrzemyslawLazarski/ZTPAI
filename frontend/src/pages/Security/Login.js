@@ -52,7 +52,7 @@ function Login() {
     <div className="container">
       <div className="left">
         <div className="logo">
-          <Link to="/"><img src="/img/logo.svg" alt="Logo" /></Link>
+          <Link to="/"><img src="/img/logo.svg" alt=""/></Link>
         </div>
         <div className="welcome-message">
           Welcome back!<br />
@@ -74,7 +74,7 @@ function Login() {
       </div>
       <div className="login-right">
         <div className="image">
-          <img src="/img/people2.svg" alt="People" />
+          <img src="/img/people2.svg" alt=""/>
         </div>
         <div className="go-back-button">
           <Link to="/">Go back</Link>

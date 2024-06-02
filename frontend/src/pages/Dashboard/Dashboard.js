@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import './Dashboard.css'; 
 import NavBar from './NavBar'; 
 
@@ -30,8 +29,7 @@ function Dashboard() {
                             <p>Let's explore together the world of quizzes</p>
                         </div>
                         <div className="banner">
-                            <img src="/img/small-logo.png" alt="Logoo" />
-                            
+                            <img src="/img/small-logo.png" alt="Logoo" />                           
                         </div>
                     </div>
                 </div>

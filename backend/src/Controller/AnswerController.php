@@ -39,10 +39,7 @@ class AnswerController extends AbstractController
     {
         $data = json_decode($request->getContent(), true);
         $answer = new Answer();
-        $answer->setQuestionId($data['question_id']);
         $answer->setAnswerText($data['answer_text']);
-        $answer->setCorrect($data['is_correct']);
-        // Set other properties...
 
         $this->entityManager->persist($answer);
         $this->entityManager->flush();
@@ -54,11 +51,7 @@ class AnswerController extends AbstractController
     public function update(Answer $answer, Request $request): JsonResponse
     {
         $data = json_decode($request->getContent(), true);
-        $answer->setQuestionId($data['question_id']);
         $answer->setAnswerText($data['answer_text']);
-        $answer->setCorrect($data['is_correct']);
-        // Update other properties...
-
         $this->entityManager->flush();
 
         return $this->json($answer);

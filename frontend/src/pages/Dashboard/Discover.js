@@ -4,13 +4,13 @@ import axios from 'axios';
 import './Dashboard.css'; 
 import NavBar from './NavBar';
 
-function MyQuizzes() {
-  const [quizzes, setQuizzes] = useState([]);
+function Discover() {
+  const [quizzes, setQuizzes] = useState([]); 
   const [searchTerm, setSearchTerm] = useState('');
-
+  
   useEffect(() => {
-    document.title = 'My Quizzes';
-
+    document.title = 'Discover';
+    
     const fetchQuizzes = async () => {
       try {
         const response = await axios.get('https://localhost:8001/api/quizzes'); 
@@ -34,37 +34,32 @@ function MyQuizzes() {
 
   return (
     <div className="container">
-      <NavBar />
+      <NavBar/>
       <div className="right">
         <div className="board">
-          My Quizzes
+          Discover
           <div className="separator"></div>
           <header>
             <div className="search-bar">
-              <input 
+            <input 
                 placeholder="search quiz" 
                 value={searchTerm} 
                 onChange={handleSearchChange} 
               />
             </div>
-            <Link to="/AddQuiz">
-              <div className="Add">
-                Add
-              </div>
-            </Link>
+            
           </header>
           <section className="projects">
             {filteredQuizzes.map((quiz) => (
-              <div key={quiz.id} className="quiz-card">
-                <h3>{quiz.title}</h3>
-                <p>{quiz.description}</p>
-                {quiz.image && <img src={`/img/${quiz.image}`} alt=""/>}
-                <div className='play-bar'>
-                  <Link to={`/quiz/${quiz.id}`}>PLAY</Link>
+                <div key={quiz.id}>
+                    <h3>{quiz.title}</h3>
+                    <p>{quiz.description}</p>
+                    {quiz.image && <img src={`/img/${quiz.image}`} alt="Quiz" />}
+                    <Link to={`/quiz/${quiz.id}`}>PLAY</Link>
                   <Link to={`/quiz/${quiz.id}/info`}>INFO</Link>
                 </div>
-              </div>
             ))}
+
           </section>
         </div>
       </div>
@@ -72,4 +67,4 @@ function MyQuizzes() {
   );
 }
 
-export default MyQuizzes;
+export default Discover;

@@ -41,7 +41,6 @@ class QuestionController extends AbstractController
         $question = new Question();
 
         $question->setQuestionText($data['question_text']);
-        // Set other properties...
 
         $this->entityManager->persist($question);
         $this->entityManager->flush();

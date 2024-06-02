@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faPuzzlePiece, faCompass, faUserShield, faSignOutAlt, faCog } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faPuzzlePiece, faUserShield, faSignOutAlt, faCog } from '@fortawesome/free-solid-svg-icons';
 
 function NavBar() {
     const [userRole, setUserRole] = useState('');
@@ -16,16 +16,14 @@ function NavBar() {
     }, []);
 
     const handleLogout = () => {
-        // Usunięcie danych użytkownika z localStorage
         localStorage.removeItem('user');
-        // Przekierowanie na stronę logowania
         navigate('/login');
     };
 
     return (
         <div className="menu">
             <div className="dashboard-logo">
-                <Link to="/dashboard"><img src="/img/logowhite.svg" alt="Logoo" /></Link>
+                <Link to="/dashboard"><img src="/img/logowhite.svg" alt=""/></Link>
             </div>
             <div className="links">
                 <Link to="/dashboard"><FontAwesomeIcon icon={faHome} /><div className='home-nav'>Home</div> </Link>
