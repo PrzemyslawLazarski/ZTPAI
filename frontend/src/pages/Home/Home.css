@@ -201,3 +201,14 @@
     width:40vw;
 
 }
+@media only screen and (max-device-width: 1020px) {
+.home-bar-buttons,.home-login-button,.home-smaller-image,.home-image,.home-knowmore-button{
+    display:none;
+}
+.home-start-button{
+    width:30vw;
+}
+.home-vertical-content{
+    margin-left:5vw;
+}
+}

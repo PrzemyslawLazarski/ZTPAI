@@ -515,6 +515,7 @@ textarea{
 }
 .hello-message{
     width:45vw;
+    margin-left:0;
 }
 .hello-message p{
     margin-top:10vh;

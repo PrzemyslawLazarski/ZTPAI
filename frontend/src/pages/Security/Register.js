@@ -31,6 +31,7 @@ useEffect(() => {
         axios.post('https://localhost:8001/register', values)
         .then(res => console.log(res))
         .catch(err => console.log(err));
+        alert("Account created succesfully");
         navigate("/login");
       }
   }
